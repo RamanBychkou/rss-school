@@ -1,0 +1,26 @@
+{
+  "name": "markup-1",
+  "version": "1.0.0",
+  "description": "Roman Bychckov Markup-1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liOdama/markup-1.git"
+  },
+  "author": "Roman Bychkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liOdama/markup-1/issues"
+  },
+  "homepage": "https://github.com/liOdama/markup-1#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp-sass": "^4.0.2"
+  }
+}
