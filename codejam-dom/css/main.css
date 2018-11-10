@@ -41,7 +41,7 @@
 		transform: rotate(-45deg)
 	}
 	.inner-text{
-		max-height: 120px;
+		height: 120px;
 		overflow: hidden;
 	}
   .inner-control, .control {
