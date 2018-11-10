@@ -38,7 +38,6 @@ window.onload = function onload() {
 
         if (activeElement === (text.length - 1)) {
           document.getElementById(0).classList.add('active');
-          createP(0);
         } else {
           activeElement += 1;
           document.getElementById(activeElement).classList.add('active');
