@@ -33,14 +33,13 @@ window.onload = function onload() {
 
       const clickNext = function clickNext() {
         let activeElement = document.querySelector('.active');
-        activeElement = activeElement.id;
+        activeElement = +(activeElement.id);
         document.getElementById(activeElement).classList.remove('active');
 
         if (activeElement === (text.length - 1)) {
           document.getElementById(0).classList.add('active');
           createP(0);
         } else {
-          activeElement = Number(activeElement);
           activeElement += 1;
           document.getElementById(activeElement).classList.add('active');
           document.querySelector('.inner-text p').innerHTML = text[activeElement];
