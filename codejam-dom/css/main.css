@@ -1,0 +1,61 @@
+.pop-up {
+    width: 350px;
+    height: 150px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background-color: darkolivegreen;
+    padding: 20px;
+    /*display: none; */
+  }
+  .btn-cross-wrapper{
+		width: 100%;
+		position: relative;
+		text-align: right;
+  }
+  .pop-up .btn-cross {
+    
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+		background-size: cover;
+		position: relative;
+  }
+  .pop-up .btn-cross::before{
+    content: "";
+    width: 20px;
+    height: 2px;
+		background-color: #000;
+		position: absolute;
+		left: 0;
+		transform: rotate(45deg)
+	}
+	.pop-up .btn-cross::after{
+    content: "";
+    width: 20px;
+    height: 2px;
+		background-color: #000;
+		position: absolute;
+		left: 0;
+		transform: rotate(-45deg)
+	}
+	.inner-text{
+		max-height: 120px;
+		overflow: hidden;
+	}
+  .inner-control, .control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn button{
+    width: 15px; 
+    height: 15px;
+    border: 1px solid black;
+    border-radius: 180px;
+    margin: 5px;
+  }
+  .active {
+    background-color: blue;
+  }
