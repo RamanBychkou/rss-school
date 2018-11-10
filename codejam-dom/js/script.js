@@ -67,5 +67,5 @@ window.onload = function onload() {
       document.addEventListener('keydown', clickKeyb);
     }
   }
-  this.setTimeout(mainAction, 1000);
+  this.setTimeout(mainAction, 5000);
 };
