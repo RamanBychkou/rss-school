@@ -18,7 +18,8 @@ window.onload = function(){
 
 				document.querySelector('.btn-prev > button').addEventListener("click", clickPrev);
 				document.querySelector('.btn-next > button').addEventListener("click", clickNext);
-
+				addEventListener('keydown', clickKeyb);
+				
 				function clickHandler(){
 					document.querySelector('.pop-up').style.display="none";
 					let checkAttr = document.querySelector('input').checked;
@@ -54,6 +55,19 @@ window.onload = function(){
 							document.getElementById(activeElement).classList.add('active')
 							document.querySelector('.inner-text p').innerHTML = text[activeElement];
 						}
+				}
+				
+				function clickKeyb() { 
+					switch(event.keyCode) {
+						case 37: {
+							clickPrev()
+							break
+						};
+						case 39: {
+							clickNext()
+							break
+						}
+					}
 				}
       };
     };
