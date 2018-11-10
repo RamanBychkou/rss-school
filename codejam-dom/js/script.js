@@ -1,5 +1,5 @@
 window.onload = function(){
-    this.setTimeout( mainAction, 5000);
+    this.setTimeout( mainAction, 1000);
   
     function mainAction(){
   
@@ -10,7 +10,9 @@ window.onload = function(){
         document.querySelector('.pop-up').style.display="block";
         document.querySelector('.btn-cross').addEventListener("click", clickHandler);
         function clickHandler(){
-          document.querySelector('.pop-up').style.display="none";
+					document.querySelector('.pop-up').style.display="none";
+					let checkAttr = document.querySelector('input').checked;
+					localStorage.setItem('checkboxValue', checkAttr)
         };
       };
     };
