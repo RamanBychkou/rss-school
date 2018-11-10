@@ -1,4 +1,2 @@
-.idea
-node_modules
-*.bundle.js
-*.log
+codejam-dom/node_modules
+.vscode/
