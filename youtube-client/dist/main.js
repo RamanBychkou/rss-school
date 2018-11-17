@@ -86,14 +86,25 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/getYoutubeData.js":
+/*!**********************************!*\
+  !*** ./src/js/getYoutubeData.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("exports.method = function getRequest(e) {\n  const elementValue = document.querySelector('input').value;\n  let params = new URLSearchParams();\n  const defaultParams = {\n    part: 'snippet',\n    maxResults: 5,\n    q: elementValue,\n    type: 'video',\n    key: 'AIzaSyCni5hHJmCRuygcOBUiHGOdldAbRIOPQB8',\n  };\n  for (const key in defaultParams) {\n    params.append(key, defaultParams[key]);\n  }\n  params = params.toString();\n  const init = {\n    method: 'GET',\n    credentials: 'include',\n\n  };\n\n  const url = `https://www.googleapis.com/youtube/v3/search?${params}`;\n  const info = fetch(url, init).then((response) => {\n    const data = response\n    return data;\n  }).catch((error) => {\n    console.log(error);\n  });\n  return info;\n};\n\n\n//# sourceURL=webpack:///./src/js/getYoutubeData.js?");
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("alert('aa')\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("const getData = __webpack_require__(/*! ./getYoutubeData.js */ \"./src/js/getYoutubeData.js\");\nlet getRequest = getData.method;\n// import data from './getYoutubeData.js';\n\nwindow.onload = () => {\n  function getSearch(e) {\n    debugger\n    e.preventDefault();\n    let data = getRequest(e);\n    console.log(data);\n  }\n  document.querySelector('.btn').addEventListener('click', getSearch);\n};\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ })
 

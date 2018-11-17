@@ -8,7 +8,7 @@ var gulp          = require('gulp'),
 gulp.task('sass', function(){
   return gulp.src('src/sass/**/*.sass')
       .pipe(sass())
-      .pipe(gulp.dest('dist/css'))
+      .pipe(gulp.dest('dist'))
       .pipe(browserSync.reload({stream: true}))
 });
 
