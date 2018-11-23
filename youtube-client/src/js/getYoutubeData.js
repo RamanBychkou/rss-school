@@ -46,6 +46,9 @@ module.exports = function getRequest(e) {
     console.log(clearData);
     
     function show(data) {
+      if(document.querySelector('.youtubeContainer') !== null) {
+        document.querySelector('.youtubeContainer').remove();
+      }
       const showVideo = new CreateFragment();
       showVideo.createElement('div').setAttr({ class: 'youtubeContainer' }).setInFragment(null);
       showVideo.createElement('div').setAttr({ class: 'youtubeSlider' }).setInFragment('.youtubeContainer');
