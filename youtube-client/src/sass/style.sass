@@ -1,0 +1,52 @@
+*
+	margin: 0
+	padding: 0
+	-webkit-box-sizing: border-box
+body
+	font-family: sans-serif
+.container
+	max-width: 1200px
+	margin: 0 auto
+h1
+	font-size: 18px
+.searchField
+	width: 50%
+	margin: 0 auto
+	backhround-color: gray
+	text-align: center
+	form
+		display: flex
+		align-self: middle
+		.btn-search, input
+			height: 20px
+		input
+			width: 70%
+		.btn-search
+			width: 30%
+.youtubeSlider
+	display: flex
+	max-width: 1020px 
+	flex-flow: row nowrap
+	justify-content: space-between
+	overflow: hidden
+	margin: 0 auto
+@media screen and (max-width: 1005px)
+  .youtubeSlider
+    max-width: 680px
+@media screen and (max-width: 680px)
+  .youtubeSlider
+    max-width: 340px
+ 
+.videoSlide
+  border: 1px solid black
+  margin: 10px
+  .videoInfo
+    padding: 10px
+    ul
+      li
+        list-style: none
+        a
+          text-decoration: none
+          color: black
+          &:hover
+            color: blue
