@@ -1,4 +1,4 @@
-
+const changeWidth = require('./changeWidth.js');
 
 const CreateFragment = require('./createFragment.js');
 
@@ -67,6 +67,8 @@ module.exports = function getRequest(e) {
       }
     }
     show(clearData);
+    changeWidth()
+    window.addEventListener('resize', changeWidth);
   }).catch((error) => {
     console.log(error);
   });

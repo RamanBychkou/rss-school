@@ -30,23 +30,73 @@ h1
 	justify-content: space-between
 	overflow: hidden
 	margin: 0 auto
+
 @media screen and (max-width: 1005px)
   .youtubeSlider
     max-width: 680px
 @media screen and (max-width: 680px)
   .youtubeSlider
     max-width: 340px
- 
+.toolTipWrapper
+    width: 100px
+    margin: 0 auto
+    ul
+      display: flex !important
+      flex-flow: row nowrap
+      justify-content: center
+      li
+        margin-right: 5px
+        position: relative
+        &::before
+          display: none
+          position: absolute
+          margin: 0
+          top: 1px
+          right: 0
+          bottom: 0
+          left: 3px    
+        &:hover::before
+          display: block  
+        input
+          width: 15px
+          height: 15px
+          border-radius: 50px
+          border: 1px solid black
+          background: none
+          position: relative
+          &::before
+            position: absolute
+            width: 5px
+            height: 5px
+            top: 0
+            color: red
+            z-index: 10
+       
+
+      .slide_1::before
+        content: '1'
+      .slide_2::before
+        content: '2'
+      .slide_3::before
+        content: '3'
+      .slide_4::before
+        content: '4'
+      .slide_5::before
+        content: '5'
+      .slide_6::before
+        content: '6'
 .videoSlide
   border: 1px solid black
   margin: 10px
   .videoInfo
     padding: 10px
-    ul
-      li
-        list-style: none
-        a
-          text-decoration: none
-          color: black
-          &:hover
-            color: blue
+
+ul
+  li
+    list-style: none
+    a
+      text-decoration: none
+      color: black
+      &:hover
+        color: blue
+      

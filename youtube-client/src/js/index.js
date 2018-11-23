@@ -1,12 +1,11 @@
 const CreateFragment = require('./createFragment.js');
 const getRequest = require('./getYoutubeData.js');
-const changeWidth = require('./changeWidth.js')
+
 
 // import data from './getYoutubeData.js'
 
 window.onload = () => {
-  changeWidth()
-  window.addEventListener('resize', changeWidth);
+  
   function getSearch(e) {
     e.preventDefault();
     const data = getRequest(e);
