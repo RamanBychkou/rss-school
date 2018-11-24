@@ -109,7 +109,10 @@ h1 {
 
 .videoSlide {
   border: 1px solid black;
-  margin: 10px; }
+  margin: 10px;
+  height: 375px;
+  min-width: 320px;
+  overflow: hidden; }
   .videoSlide .videoInfo {
     padding: 10px; }
 
