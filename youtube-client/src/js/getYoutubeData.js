@@ -52,7 +52,8 @@ module.exports = class Request {
 
   viewCountData(dataV) {
     for (let i = 0; i < dataV.items.length; i += 1) {
-      this.data[dataV.items[i].id].ViewCounts = dataV.items[i].statistics.viewCount;
+      const temp = dataV.items[i].id;
+      this.data[temp].viewcounts = dataV.items[i].statistics.viewCount;
     }
     return this.show();
   }
@@ -63,6 +64,7 @@ module.exports = class Request {
       .then(async (response) => {
         const data = await response.json();
         const id = this.dataProcessing(data);
+        this.videoSearchParametrs.id = '';
         for (let i = 0; i < 6; i += 1) {
           if (i !== 5) {
             this.videoSearchParametrs.id = `${this.videoSearchParametrs.id + id[i]},`;
@@ -70,29 +72,28 @@ module.exports = class Request {
             this.videoSearchParametrs.id = this.videoSearchParametrs.id + id[i];
           }
         }
-        return this.videoRequest();
-      }).then(response => Promise.resolve(response));
+      })
+      .then(response => Promise.resolve(response)).then(() => this.videoRequest());
   }
 
   videoRequest() {
     fetch(this.createUrl(this.videoUrl, this.videoSearchParametrs))
-      .then(async (response) => {
-        const secondData = await response.json();
-        this.viewCountData(secondData);
-      })
-      .then(response => Promise.resolve(response));
+      .then(async (response) => await response.json())
+      .then(response => Promise.resolve(response))
+      .then(secondData => this.viewCountData(secondData));
   }
 
   getData() { return this.data; }
 
   show(data) {
-    if(document.querySelector('.youtubeContainer') !== null) {
+    if (document.querySelector('.youtubeContainer') !== null) {
       document.querySelector('.youtubeContainer').remove();
     }
     const showVideo = new CreateFragment();
     showVideo.createElement('div').setAttr({ class: 'youtubeContainer' }).setInFragment(null);
     showVideo.createElement('div').setAttr({ class: 'youtubeSlider' }).setInFragment('.youtubeContainer');
     showVideo.createElement('button').setText('next').setAttr({ class: 'btnSliderNext' }).setInFragment('.youtubeContainer');
+    showVideo.createElement('button').setAttr({ class: 'newVideo' }).setText('New Video').setInFragment('.youtubeContainer');
     showVideo.setInDocument('.container');
     for (const key in this.data) {
       const tempVideo = new CreateFragment();
@@ -106,11 +107,12 @@ module.exports = class Request {
       tempVideo.createElement('li').setText(`Date: ${this.data[key].date}`).setInFragment('ul');
       tempVideo.createElement('li').setText(`Author: ${this.data[key].author}`).setInFragment('ul');
       tempVideo.createElement('li').setText(`description: ${this.data[key].description}`).setInFragment('ul');
-      tempVideo.createElement('li').setText(`View Count: ${this.data[key].ViewCounts}`).setInFragment('ul');
+      tempVideo.createElement('li').setText(`View Count: ${this.data[key].viewcounts}`).setInFragment('ul');
       tempVideo.setInDocument('.youtubeSlider');
     }
     changeWidth();
     window.addEventListener('resize', changeWidth);
+    document.querySelector('.newVideo').addEventListener('click', this.getRequest.bind(this));
   }
 };
 
