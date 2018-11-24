@@ -1,17 +1,22 @@
 const CreateFragment = require('./createFragment.js');
+const slider = require('./slider.js');
 
 module.exports = function changeWidth() {
   const browserWidth = window.innerWidth;
   let stepSlider;
+  document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = '0px';
   if (browserWidth > 1005) {
-    stepSlider = '1020px';
+    stepSlider = 1020;
     createTooltip(2);
+    slider(stepSlider, 2);
   } else if (browserWidth < 1005 && browserWidth > 680) {
-    stepSlider = '680px';
+    stepSlider = 680;
     createTooltip(3);
+    slider(stepSlider, 3);
   } else if (browserWidth < 680) {
-    stepSlider = '340px';
+    stepSlider = 340;
     createTooltip(6);
+    slider(stepSlider, 6);
   }
 
   function createTooltip(numberTooltip) {
