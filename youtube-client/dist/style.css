@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box; }
+
+body {
+  font-family: sans-serif; }
+
+body {
+  background-image: url(bg.jpg);
+  background-repeat: none;
+  background-size: cover; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 15px; }
+
+h1 {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 10px; }
+
+.searchField {
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  text-align: center; }
+  .searchField form {
+    display: flex;
+    align-self: middle; }
+    .searchField form input {
+      width: 70%; }
+    .searchField form .btn-search {
+      width: 30%; }
+
+.youtubeSlider {
+  display: flex;
+  max-width: 1020px;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 0 auto; }
+
+.youtubeContainer {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-top: 15px; }
+  .youtubeContainer .videoSlide {
+    background-color: rgba(255, 255, 255, 0.4); }
+
+@media screen and (max-width: 1005px) {
+  .youtubeSlider {
+    max-width: 680px; } }
+
+@media screen and (max-width: 680px) {
+  .youtubeSlider {
+    max-width: 340px; } }
+
+.toolTipWrapper {
+  width: 100px;
+  margin: 0 auto; }
+  .toolTipWrapper ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center; }
+    .toolTipWrapper ul li {
+      margin-right: 5px;
+      position: relative; }
+      .toolTipWrapper ul li button {
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+        border: 1px solid #fff;
+        position: relative;
+        background: transparent;
+        z-index: 10;
+        color: transparent; }
+      .toolTipWrapper ul li .active {
+        background-color: red; }
+      .toolTipWrapper ul li .colorBtnText {
+        color: #fff; }
+    .toolTipWrapper ul .slide_1 input::before {
+      content: '1'; }
+    .toolTipWrapper ul .slide_2 input::before {
+      content: '2'; }
+    .toolTipWrapper ul .slide_3 input::before {
+      content: '3'; }
+    .toolTipWrapper ul .slide_4 input::before {
+      content: '4'; }
+    .toolTipWrapper ul .slide_5 input::before {
+      content: '5'; }
+    .toolTipWrapper ul .slide_6 input::before {
+      content: '6'; }
+
+.videoSlide {
+  border: 1px solid black;
+  margin: 10px;
+  height: 375px;
+  min-width: 320px;
+  overflow: hidden; }
+  .videoSlide .videoInfo {
+    padding: 10px; }
+
+.control {
+  text-align: right; }
+  .control button {
+    width: 80px; }
+
+ul li {
+  list-style: none; }
+  ul li a {
+    text-decoration: none;
+    color: black; }
+    ul li a:hover {
+      color: blue; }
+
+.videoSlide:first-child {
+  transition-property: margin-left;
+  transition-timing-function: linear;
+  transition-duration: 1s; }
