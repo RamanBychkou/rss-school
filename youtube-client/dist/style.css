@@ -68,28 +68,26 @@ h1 {
     .toolTipWrapper ul li {
       margin-right: 5px;
       position: relative; }
-      .toolTipWrapper ul li input {
+      .toolTipWrapper ul li button {
         width: 15px;
         height: 15px;
         border-radius: 50px;
         border: 1px solid #fff;
         position: relative;
-        background: transparent; }
-        .toolTipWrapper ul li input::before {
-          content: "";
-          display: block;
+        background: transparent;
+        z-index: 10;
+        color: transparent; }
+        .toolTipWrapper ul li button::before {
           position: absolute;
-          margin: 0;
-          top: 1px;
-          right: 0;
-          bottom: 0;
-          left: 3px;
-          color: #fff;
           width: 15px;
-          height: 15px; }
-      .toolTipWrapper ul li .active::before {
-        background-color: red !important;
-        display: block; }
+          height: 15px;
+          top: 0;
+          border-radius: 50px;
+          background-color: red;
+          color: #fff;
+          z-index: 100; }
+      .toolTipWrapper ul li .active {
+        background-color: red; }
     .toolTipWrapper ul .slide_1 input::before {
       content: '1'; }
     .toolTipWrapper ul .slide_2 input::before {
@@ -124,3 +122,8 @@ ul li {
     color: black; }
     ul li a:hover {
       color: blue; }
+
+.videoSlide:first-child {
+  transition-property: margin-left;
+  transition-timing-function: linear;
+  transition-duration: 1s; }

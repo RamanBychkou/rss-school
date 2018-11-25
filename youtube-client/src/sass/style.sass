@@ -60,29 +60,27 @@ h1
       li
         margin-right: 5px
         position: relative   
-        input
+        button
           width: 15px
           height: 15px
           border-radius: 50px
           border: 1px solid #fff
           position: relative
           background: transparent
+          z-index: 10
+          color: transparent
           &::before
-            content: ""
-            display: block
             position: absolute
-            margin: 0
-            top: 1px
-            right: 0
-            bottom: 0
-            left: 3px
-            color: #fff
             width: 15px
-            height: 15px 
+            height: 15px
+            top: 0
+            border-radius: 50px
+            background-color: red
+            color: #fff
+            z-index: 100
         .active
-          &::before
-            background-color: red !important
-            display: block 
+          background-color: red
+
        
 
       .slide_1 input::before
@@ -118,4 +116,8 @@ ul
       color: black
       &:hover
         color: blue
+.videoSlide:first-child
+  transition-property: margin-left
+  transition-timing-function: linear
+  transition-duration: 1s
       

@@ -8,12 +8,12 @@ module.exports = function slider(step, numbersSlide) {
     if (currentSlide === numbersSlide) {
       currentSlide = 1;
       margin = 0;
-      document.querySelector('.slide_1 > input').setAttribute('class', 'active');
+      document.querySelector('.slide_1 > button').setAttribute('class', 'active');
       document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = '0px';
     } else {
       margin += step;
       currentSlide += stepCurrentSlide;
-      document.querySelector(`.toolTipWrapper ul li:nth-child(${currentSlide}) input`).setAttribute('class', 'active');
+      document.querySelector(`.toolTipWrapper ul li:nth-child(${currentSlide}) button`).setAttribute('class', 'active');
       document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = `-${margin}px`;
     }
   }
@@ -22,12 +22,12 @@ module.exports = function slider(step, numbersSlide) {
     if (currentSlide === 1) {
       currentSlide = numbersSlide;
       margin = step * (numbersSlide - 1);
-      document.querySelector('.toolTipWrapper ul li:last-child > input').setAttribute('class', 'active');
+      document.querySelector('.toolTipWrapper ul li:last-child > button').setAttribute('class', 'active');
       document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = `-${margin}px`;
     } else {
       margin -= step;
       currentSlide -= stepCurrentSlide;
-      document.querySelector(`.toolTipWrapper ul li:nth-child(${currentSlide}) input`).setAttribute('class', 'active');
+      document.querySelector(`.toolTipWrapper ul li:nth-child(${currentSlide}) button`).setAttribute('class', 'active');
       document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = `-${margin}px`;
     }
   }
@@ -63,7 +63,11 @@ module.exports = function slider(step, numbersSlide) {
     }
   }
 
-  document.querySelector('.slide_1 > input').setAttribute('class', 'active');
+  function showPage(event) {
+    event.target.style.color = '#fff';
+  }
+  document.querySelector('.slide_1 > button').setAttribute('class', 'active');
+  document.querySelector('.toolTipWrapper').addEventListener('mousedown', showPage);
   document.querySelector('.youtubeSlider').addEventListener('mousedown', handle);
   document.querySelector('.youtubeSlider').addEventListener('mouseup', handle);
   document.querySelector('.youtubeSlider').addEventListener('touchstart', handle);
