@@ -8,7 +8,7 @@ module.exports = class Request {
     this.videoUrl = 'https://www.googleapis.com/youtube/v3/videos?';
     this.commonSearchParametrs = {
       part: 'snippet',
-      maxResults: 6,
+      maxResults: 15,
       q: elementValue,
       type: 'video',
       key: 'AIzaSyCni5hHJmCRuygcOBUiHGOdldAbRIOPQB8',
@@ -18,6 +18,7 @@ module.exports = class Request {
       id: '',
       part: 'snippet, statistics',
     };
+    this.clips = 0;
   }
 
   static createUrl(url, defaultParams) {
@@ -30,6 +31,7 @@ module.exports = class Request {
     return url + urlParametr;
   }
 
+  // common data processing
   dataProcessing(dataV) {
     const result = {};
     const idArray = [];
@@ -50,6 +52,7 @@ module.exports = class Request {
     return idArray;
   }
 
+  // get view count
   viewCountData(dataV) {
     for (let i = 0; i < dataV.items.length; i += 1) {
       const temp = dataV.items[i].id;
@@ -58,24 +61,26 @@ module.exports = class Request {
     return this.show();
   }
 
-
+  // common request
   getRequest() {
     fetch(Request.createUrl(this.searchUrl, this.commonSearchParametrs))
       .then(async (response) => {
         const data = await response.json();
         const id = this.dataProcessing(data);
         this.videoSearchParametrs.id = '';
-        for (let i = 0; i < 6; i += 1) {
-          if (i !== 5) {
+        for (let i = 0; i < 15; i += 1) {
+          if (i !== 15) {
             this.videoSearchParametrs.id = `${this.videoSearchParametrs.id + id[i]},`;
           } else {
             this.videoSearchParametrs.id = this.videoSearchParametrs.id + id[i];
           }
         }
       })
-      .then(response => Promise.resolve(response)).then(() => this.videoRequest());
+      .then(response => Promise.resolve(response)).then(() => this.videoRequest())
+      .catch(error => error);
   }
 
+  // video request
   videoRequest() {
     fetch(Request.createUrl(this.videoUrl, this.videoSearchParametrs))
       .then(
@@ -85,22 +90,23 @@ module.exports = class Request {
         },
       )
       .then(response => Promise.resolve(response))
-      .then(secondData => this.viewCountData(secondData));
+      .then(secondData => this.viewCountData(secondData))
+      .catch(error => error);
   }
 
-  getData() { return this.data; }
-
+  // show results on the page
   show() {
+    const showVideo = new CreateFragment();
     if (document.querySelector('.youtubeContainer') !== null) {
       document.querySelector('.youtubeContainer').remove();
     }
-    const showVideo = new CreateFragment();
     showVideo.createElement('section').setAttr({ class: 'youtubeContainer' }).setInFragment(null);
     showVideo.createElement('div').setAttr({ class: 'youtubeSlider' }).setInFragment('.youtubeContainer');
     showVideo.createElement('div').setAttr({ class: 'control' }).setInFragment('.youtubeContainer');
     showVideo.createElement('button').setAttr({ class: 'newVideo' }).setText('New Video').setInFragment('.control');
     showVideo.setInDocument('main');
     const tempData = Object.entries(this.data);
+    // create article
     for (let i = 0; i < tempData.length; i += 1) {
       const tempVideo = new CreateFragment();
       tempVideo.createElement('article').setAttr({ class: 'videoSlide' }).setInFragment(null);
@@ -116,6 +122,7 @@ module.exports = class Request {
       tempVideo.createElement('li').setText(`View Count: ${tempData[i][1].viewcounts}`).setInFragment('ul');
       tempVideo.setInDocument('.youtubeSlider');
     }
+    // start tracking device width
     changeWidth();
     window.addEventListener('resize', changeWidth);
     document.querySelector('.newVideo').addEventListener('click', this.getRequest.bind(this));

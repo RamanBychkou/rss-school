@@ -17,6 +17,7 @@ module.exports = function slider(step, numbersSlide) {
       document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = `-${margin}px`;
     }
   }
+
   function prevSlide() {
     document.querySelector('.active').removeAttribute('class');
     if (currentSlide === 1) {

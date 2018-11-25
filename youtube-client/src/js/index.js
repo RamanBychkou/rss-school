@@ -1,19 +1,14 @@
 const CreateFragment = require('./createFragment.js');
 const GetRequest = require('./getYoutubeData.js');
 
-
-// import data from './getYoutubeData.js'
-
 window.onload = () => {
   function getSearch(e) {
     e.preventDefault();
     const elementValue = document.querySelector('input').value;
     const getData = new GetRequest(elementValue);
     getData.getRequest();
-
-
-    // const data = getRequest(e);
   }
+  // create search form
   const showSearchField = new CreateFragment();
   showSearchField.createElement('div').setAttr({ class: 'container' }).setInFragment(null);
   showSearchField.createElement('header').setAttr({ class: 'searchField' }).setInFragment('.container');

@@ -4,20 +4,8 @@ const slider = require('./slider.js');
 module.exports = function changeWidth() {
   const browserWidth = window.innerWidth;
   let stepSlider;
+  // show first slide
   document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = '0px';
-  if (browserWidth > 1005) {
-    stepSlider = 1020;
-    createTooltip(2);
-    slider(stepSlider, 2);
-  } else if (browserWidth < 1005 && browserWidth > 680) {
-    stepSlider = 680;
-    createTooltip(3);
-    slider(stepSlider, 3);
-  } else if (browserWidth < 680) {
-    stepSlider = 340;
-    createTooltip(6);
-    slider(stepSlider, 6);
-  }
 
   function createTooltip(numberTooltip) {
     if (document.querySelector('.toolTipWrapper') !== null) {
@@ -31,5 +19,19 @@ module.exports = function changeWidth() {
       setToolTip.createElement('button').setText(`${i + 1}`).setAttr({ id: `${i + 1}` }).setInFragment(`.toolTipWrapper > ul li:nth-child(${i + 1})`);
     }
     setToolTip.setInDocument('.youtubeContainer');
+  }
+  // tracking device width
+  if (browserWidth > 1005) {
+    stepSlider = 1020;
+    createTooltip(5);
+    slider(stepSlider, 5);
+  } else if (browserWidth < 1005 && browserWidth > 680) {
+    stepSlider = 680;
+    createTooltip(8);
+    slider(stepSlider, 8);
+  } else if (browserWidth < 680) {
+    stepSlider = 340;
+    createTooltip(15);
+    slider(stepSlider, 15);
   }
 };
