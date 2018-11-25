@@ -1,5 +1,5 @@
 const CreateFragment = require('./createFragment.js');
-const getRequest = require('./getYoutubeData.js');
+const GetRequest = require('./getYoutubeData.js');
 
 
 // import data from './getYoutubeData.js'
@@ -8,7 +8,7 @@ window.onload = () => {
   function getSearch(e) {
     e.preventDefault();
     const elementValue = document.querySelector('input').value;
-    const getData = new getRequest(elementValue);
+    const getData = new GetRequest(elementValue);
     getData.getRequest();
 
 

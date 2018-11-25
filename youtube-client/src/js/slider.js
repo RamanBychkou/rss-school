@@ -64,7 +64,18 @@ module.exports = function slider(step, numbersSlide) {
   }
 
   function showPage(event) {
-    event.target.style.color = '#fff';
+    if (document.querySelector('.colorBtnText') !== null) {
+      document.querySelector('.colorBtnText').removeAttribute('class');
+    }
+    if (document.querySelector('.active') !== null) {
+      document.querySelector('.active').removeAttribute('class');
+    }
+    const e = event.target;
+    e.setAttribute('class', 'colorBtnText active');
+    const id = +e.id;
+    margin = step * (id - 1);
+    document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = `-${margin}px`;
+    currentSlide = id;
   }
   document.querySelector('.slide_1 > button').setAttribute('class', 'active');
   document.querySelector('.toolTipWrapper').addEventListener('mousedown', showPage);

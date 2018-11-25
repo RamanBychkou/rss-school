@@ -28,7 +28,7 @@ module.exports = function changeWidth() {
     setToolTip.createElement('ul').setInFragment('.toolTipWrapper');
     for (let i = 0; i < numberTooltip; i += 1) {
       setToolTip.createElement('li').setAttr({ class: `slide_${i + 1}` }).setInFragment('.toolTipWrapper > ul');
-      setToolTip.createElement('button').setText(`${i + 1}`).setAttr({ type: 'button' }).setInFragment(`.toolTipWrapper > ul li:nth-child(${i + 1})`);
+      setToolTip.createElement('button').setText(`${i + 1}`).setAttr({ id: `${i + 1}` }).setInFragment(`.toolTipWrapper > ul li:nth-child(${i + 1})`);
     }
     setToolTip.setInDocument('.youtubeContainer');
   }

@@ -77,17 +77,10 @@ h1 {
         background: transparent;
         z-index: 10;
         color: transparent; }
-        .toolTipWrapper ul li button::before {
-          position: absolute;
-          width: 15px;
-          height: 15px;
-          top: 0;
-          border-radius: 50px;
-          background-color: red;
-          color: #fff;
-          z-index: 100; }
       .toolTipWrapper ul li .active {
         background-color: red; }
+      .toolTipWrapper ul li .colorBtnText {
+        color: #fff; }
     .toolTipWrapper ul .slide_1 input::before {
       content: '1'; }
     .toolTipWrapper ul .slide_2 input::before {
