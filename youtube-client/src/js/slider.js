@@ -3,7 +3,7 @@ module.exports = function slider(step, numbersSlide) {
   const stepCurrentSlide = numbersSlide / numbersSlide;
   let margin = 0;
   const coordinate = {};
-  function nextSlide(numbersSlide) {
+  function nextSlide() {
     document.querySelector('.active').removeAttribute('class');
     if (currentSlide === numbersSlide) {
       currentSlide = 1;
@@ -17,7 +17,7 @@ module.exports = function slider(step, numbersSlide) {
       document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = `-${margin}px`;
     }
   }
-  function prevSlide(numbersSlide) {
+  function prevSlide() {
     document.querySelector('.active').removeAttribute('class');
     if (currentSlide === 1) {
       currentSlide = numbersSlide;
@@ -31,7 +31,7 @@ module.exports = function slider(step, numbersSlide) {
       document.querySelector('.youtubeSlider > .videoSlide:first-child').style.marginLeft = `-${margin}px`;
     }
   }
-  function handle() {
+  function handle(event) {
     switch (event.type) {
       case 'mousedown':
         coordinate.startX = event.clientX;
@@ -40,7 +40,6 @@ module.exports = function slider(step, numbersSlide) {
       case 'mouseup':
         coordinate.endX = event.clientX;
         coordinate.endY = event.clientY;
-        console.log(coordinate);
         if (coordinate.startX > coordinate.endX) {
           nextSlide(numbersSlide);
         } else {
@@ -54,7 +53,6 @@ module.exports = function slider(step, numbersSlide) {
       case 'touchend':
         coordinate.endX = event.changedTouches[0].screenX;
         coordinate.endY = event.changedTouches[0].screenY;
-        console.log(coordinate);
         if (coordinate.startX > coordinate.endX) {
           nextSlide(numbersSlide);
         } else {
@@ -66,7 +64,9 @@ module.exports = function slider(step, numbersSlide) {
   }
 
   document.querySelector('.slide_1 > input').setAttribute('class', 'active');
-  document.querySelector('.btnSliderNext').addEventListener('click', nextSlide.bind(this, numbersSlide, step, stepCurrentSlide, margin));
-  document.querySelector('.youtubeSlider').addEventListener('mousedown', handle.bind(this, numbersSlide, step, stepCurrentSlide, margin));
-  document.querySelector('.youtubeSlider').addEventListener('mouseup', handle.bind(this, numbersSlide, step, stepCurrentSlide, margin));
+  document.querySelector('.btnSliderNext').addEventListener('click', nextSlide);
+  document.querySelector('.youtubeSlider').addEventListener('mousedown', handle);
+  document.querySelector('.youtubeSlider').addEventListener('mouseup', handle);
+  document.querySelector('.youtubeSlider').addEventListener('touchstart', handle);
+  document.querySelector('.youtubeSlider').addEventListener('touchend', handle);
 };
