@@ -16,7 +16,8 @@ window.onload = () => {
   }
   const showSearchField = new CreateFragment();
   showSearchField.createElement('div').setAttr({ class: 'container' }).setInFragment(null);
-  showSearchField.createElement('div').setAttr({ class: 'searchField' }).setInFragment('.container');
+  showSearchField.createElement('header').setAttr({ class: 'searchField' }).setInFragment('.container');
+  showSearchField.createElement('main').setInFragment('.container');
   showSearchField.createElement('h1').setText('Youtube Searh App').setInFragment('.searchField');
   showSearchField.createElement('form').setInFragment('.searchField');
   showSearchField.createElement('input').setAttr({ type: 'text', placeholder: 'Search me' }).setInFragment('form');

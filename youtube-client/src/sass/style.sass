@@ -59,46 +59,43 @@ h1
       justify-content: center
       li
         margin-right: 5px
-        position: relative
-        &::before
-          display: none
-          position: absolute
-          margin: 0
-          top: 1px
-          right: 0
-          bottom: 0
-          left: 3px    
-        &:hover::before
-          display: block  
+        position: relative   
         input
           width: 15px
           height: 15px
           border-radius: 50px
           border: 1px solid #fff
-          background: none
           position: relative
+          background: transparent
           &::before
+            content: ""
+            display: block
             position: absolute
-            width: 5px
-            height: 5px
-            top: 0
-            color: red
-            z-index: 10
+            margin: 0
+            top: 1px
+            right: 0
+            bottom: 0
+            left: 3px
+            color: #fff
+            width: 15px
+            height: 15px 
         .active
-          background: red
+          &::before
+            background-color: red !important
+            display: block 
        
 
-      .slide_1::before
+      .slide_1 input::before
         content: '1'
-      .slide_2::before
+      .slide_2 input::before
         content: '2'
-      .slide_3::before
+      .slide_3 input::before
         content: '3'
-      .slide_4::before
+      .slide_4 input::before
         content: '4'
-      .slide_5::before
+      .slide_5 input::before
         content: '5'
-      .slide_6::before
+      .slide_6 input::before
         content: '6'
 .videoSlide
   border: 1px solid black
@@ -108,6 +105,10 @@ h1
   overflow: hidden
   .videoInfo
     padding: 10px
+.control
+  text-align: right
+  button
+    width: 80px
 
 ul
   li

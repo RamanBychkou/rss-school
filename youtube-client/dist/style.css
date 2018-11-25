@@ -68,43 +68,39 @@ h1 {
     .toolTipWrapper ul li {
       margin-right: 5px;
       position: relative; }
-      .toolTipWrapper ul li::before {
-        display: none;
-        position: absolute;
-        margin: 0;
-        top: 1px;
-        right: 0;
-        bottom: 0;
-        left: 3px; }
-      .toolTipWrapper ul li:hover::before {
-        display: block; }
       .toolTipWrapper ul li input {
         width: 15px;
         height: 15px;
         border-radius: 50px;
         border: 1px solid #fff;
-        background: none;
-        position: relative; }
+        position: relative;
+        background: transparent; }
         .toolTipWrapper ul li input::before {
+          content: "";
+          display: block;
           position: absolute;
-          width: 5px;
-          height: 5px;
-          top: 0;
-          color: red;
-          z-index: 10; }
-      .toolTipWrapper ul li .active {
-        background: red; }
-    .toolTipWrapper ul .slide_1::before {
+          margin: 0;
+          top: 1px;
+          right: 0;
+          bottom: 0;
+          left: 3px;
+          color: #fff;
+          width: 15px;
+          height: 15px; }
+      .toolTipWrapper ul li .active::before {
+        background-color: red !important;
+        display: block; }
+    .toolTipWrapper ul .slide_1 input::before {
       content: '1'; }
-    .toolTipWrapper ul .slide_2::before {
+    .toolTipWrapper ul .slide_2 input::before {
       content: '2'; }
-    .toolTipWrapper ul .slide_3::before {
+    .toolTipWrapper ul .slide_3 input::before {
       content: '3'; }
-    .toolTipWrapper ul .slide_4::before {
+    .toolTipWrapper ul .slide_4 input::before {
       content: '4'; }
-    .toolTipWrapper ul .slide_5::before {
+    .toolTipWrapper ul .slide_5 input::before {
       content: '5'; }
-    .toolTipWrapper ul .slide_6::before {
+    .toolTipWrapper ul .slide_6 input::before {
       content: '6'; }
 
 .videoSlide {
@@ -115,6 +111,11 @@ h1 {
   overflow: hidden; }
   .videoSlide .videoInfo {
     padding: 10px; }
+
+.control {
+  text-align: right; }
+  .control button {
+    width: 80px; }
 
 ul li {
   list-style: none; }

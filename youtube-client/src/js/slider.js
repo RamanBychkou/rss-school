@@ -64,7 +64,6 @@ module.exports = function slider(step, numbersSlide) {
   }
 
   document.querySelector('.slide_1 > input').setAttribute('class', 'active');
-  document.querySelector('.btnSliderNext').addEventListener('click', nextSlide);
   document.querySelector('.youtubeSlider').addEventListener('mousedown', handle);
   document.querySelector('.youtubeSlider').addEventListener('mouseup', handle);
   document.querySelector('.youtubeSlider').addEventListener('touchstart', handle);

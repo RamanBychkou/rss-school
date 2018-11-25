@@ -21,7 +21,7 @@ module.exports = function changeWidth() {
 
   function createTooltip(numberTooltip) {
     if (document.querySelector('.toolTipWrapper') !== null) {
-      document.querySelector('.toolTipWrapper ul').remove();
+      document.querySelector('.toolTipWrapper').remove();
     }
     const setToolTip = new CreateFragment();
     setToolTip.createElement('div').setAttr({ class: 'toolTipWrapper' }).setInFragment(null);

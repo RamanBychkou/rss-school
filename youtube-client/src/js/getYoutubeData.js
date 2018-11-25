@@ -95,18 +95,18 @@ module.exports = class Request {
       document.querySelector('.youtubeContainer').remove();
     }
     const showVideo = new CreateFragment();
-    showVideo.createElement('div').setAttr({ class: 'youtubeContainer' }).setInFragment(null);
+    showVideo.createElement('section').setAttr({ class: 'youtubeContainer' }).setInFragment(null);
     showVideo.createElement('div').setAttr({ class: 'youtubeSlider' }).setInFragment('.youtubeContainer');
-    showVideo.createElement('button').setText('next').setAttr({ class: 'btnSliderNext' }).setInFragment('.youtubeContainer');
-    showVideo.createElement('button').setAttr({ class: 'newVideo' }).setText('New Video').setInFragment('.youtubeContainer');
-    showVideo.setInDocument('.container');
+    showVideo.createElement('div').setAttr({ class: 'control' }).setInFragment('.youtubeContainer');
+    showVideo.createElement('button').setAttr({ class: 'newVideo' }).setText('New Video').setInFragment('.control');
+    showVideo.setInDocument('main');
     const tempData = Object.entries(this.data);
     for (let i = 0; i < tempData.length; i += 1) {
       const tempVideo = new CreateFragment();
-      tempVideo.createElement('div').setAttr({ class: 'videoSlide' }).setInFragment(null);
-      tempVideo.createElement('div').setAttr({ class: 'videoImg' }).setInFragment('.videoSlide');
+      tempVideo.createElement('article').setAttr({ class: 'videoSlide' }).setInFragment(null);
+      tempVideo.createElement('figure').setAttr({ class: 'videoImg' }).setInFragment('.videoSlide');
       tempVideo.createElement('img').setAttr({ src: tempData[i][1].picture, alt: tempData[i][1].title }).setInFragment('.videoImg');
-      tempVideo.createElement('div').setAttr({ class: 'videoInfo' }).setInFragment('.videoSlide');
+      tempVideo.createElement('figcaption').setAttr({ class: 'videoInfo' }).setInFragment('.videoSlide');
       tempVideo.createElement('ul').setInFragment('.videoInfo');
       tempVideo.createElement('li').setInFragment('ul');
       tempVideo.createElement('a').setAttr({ href: `https://www.youtube.com/watch?v=${tempData[i][1].id}` }).setText(`Title: ${tempData[i][1].title}`).setInFragment('ul > li');
