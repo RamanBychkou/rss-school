@@ -20,8 +20,20 @@ td {
   border: 1px solid black;
   text-align: center;
   padding: 5px;
+  position: relative;
 }
-
+td .answer {
+  display: none;
+  position: absolute;
+  top: 0px;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 80px;
+  z-index: 100;
+}
+td:hover .answer {
+  display: block;
+}
 tr:nth-child(2n+1){
   background-color: #f8820969;
   opacity: 0.7;

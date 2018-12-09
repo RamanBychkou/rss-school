@@ -41,7 +41,6 @@ let userData = {};
 
       
           createTable.createElement('tr').setInFragment('table');
-          let quantity = 0
           let baseTime = 150;
           createTable.createElement('td').setText('RSschool').setInFragment('tr:last-child');
           createTable.createElement('td').setText(baseTime).setInFragment('tr:last-child');
@@ -82,7 +81,9 @@ let userData = {};
               quantity = quantity + baseTime;
             } else {
               quantity = quantity + +(currentValue.time.$numberLong);
-              createTable.createElement('td').setText(currentValue.time.$numberLong).setInFragment('tr:last-child')
+              createTable.createElement('td').setText(currentValue.time.$numberLong).setInFragment('tr:last-child');
+              createTable.createElement('div').setAttr({class: 'answer'}).setInFragment('tr:last-child>td:last-child')
+              createTable.createElement('p').setText(currentValue.code).setInFragment('tr:last-child>td:last-child > .answer');
             }
             
           }
