@@ -31,7 +31,13 @@ class Battle {
     };
   }
 
-  attack(person = this.monster) {
+  attack(target) {
+    let person;
+    if (target === true) {
+      person = this.monster;
+    } else {
+      person = this.player;
+    }
     let { view } = person;
     view.healthy -= this.subtractHealthy;
     console.log(person);

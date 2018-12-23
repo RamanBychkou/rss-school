@@ -14,6 +14,7 @@ import Battle from './screens/battle/battle';
 import Cast from './screens/cast/cast';
 
 import { pause } from './utils';
+import Task from './screens/task/task';
 
 const setPlayerName = async (gameState) => {
   const playerName = await ChoosePlayerName.getNewPlayerName();
@@ -26,17 +27,24 @@ const setPlayerName = async (gameState) => {
 
 const getBattleResult = async (gameState) => {
   await setPlayerName(gameState);
-  console.log(Battle);
   const Game = new Battle();
   Battle.draw(gameState);
   $('.js-attack').on('click', () => {
     const chosenCast = Cast.getPlayerCast();
-    //Game.attack();
+    $('.taskWrapper').on('click', async (e) => {
+      $('#demoModal').modal('hide');
+      await pause(1000);
+      const taskName = e.target.id;
+      const taskResult = await Task.getPlayerCast(taskName);
+      Game.attack(taskResult);
+    });
   });
+
+
   // start animation
   // await pause(3000);
 
- //const chosenCast = await Cast.getPlayerCast();
+  // const chosenCast = await Cast.getPlayerCast();
 
   // for debug - WIP
   // TODO: need to remove

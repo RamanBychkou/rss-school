@@ -15,13 +15,7 @@ class Cast {
   }
 
   static getPlayerCast() {
-    Cast.draw(); /*
-    const currentCast = 'only_one_cast';
-    return new Promise((resolve) => {
-      $('#demoModal').on('hidden.bs.modal', () => {
-        resolve(currentCast);
-      });
-    }); */
+    Cast.draw();
   }
 }
 
