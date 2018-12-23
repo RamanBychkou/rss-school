@@ -18,15 +18,24 @@ class Battle {
   constructor() {
     this.player = {
       view: {
-        color: 'red',
+        healthy: 100,
       },
     };
     this.monster = {
       view: {
-        color: 'orange',
+        healthy: 100,
       },
     };
-    this.currentState = {};
+    this.subtractHealthy = 20;
+    this.currentState = {
+    };
+  }
+
+  attack(person = this.monster) {
+    let { view } = person;
+    view.healthy -= this.subtractHealthy;
+    console.log(person);
+    return person;
   }
 }
 

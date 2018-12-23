@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 import template from './cast.template';
 
-
 class Cast {
   static draw() {
     const contentEl = document.querySelector('#demoModal .modal-body');
@@ -16,14 +15,13 @@ class Cast {
   }
 
   static getPlayerCast() {
-    Cast.draw();
+    Cast.draw(); /*
     const currentCast = 'only_one_cast';
-
     return new Promise((resolve) => {
       $('#demoModal').on('hidden.bs.modal', () => {
         resolve(currentCast);
       });
-    });
+    }); */
   }
 }
 

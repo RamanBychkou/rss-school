@@ -26,17 +26,21 @@ const setPlayerName = async (gameState) => {
 
 const getBattleResult = async (gameState) => {
   await setPlayerName(gameState);
-
+  console.log(Battle);
+  const Game = new Battle();
   Battle.draw(gameState);
-
+  $('.js-attack').on('click', () => {
+    const chosenCast = Cast.getPlayerCast();
+    //Game.attack();
+  });
   // start animation
-  await pause(3000);
+  // await pause(3000);
 
-  const chosenCast = await Cast.getPlayerCast();
+ //const chosenCast = await Cast.getPlayerCast();
 
   // for debug - WIP
   // TODO: need to remove
-  alert('round finished!', chosenCast); // eslint-disable-line no-alert
+  // alert('round finished!', chosenCast); // eslint-disable-line no-alert
 };
 
 

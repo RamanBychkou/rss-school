@@ -14,7 +14,7 @@ export default `
       </div>
     </div>
     <div class="col-sm">
-      space for animations
+    <button type="button" class="btn js-attack">Attack monster</button>
     </div>
     <div class="col-sm">
       <div id="monster">
