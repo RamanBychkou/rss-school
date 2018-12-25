@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import MathTemplate from '../../components/tasks/Math/taskMath.template';
-import mathTask from '../../components/tasks/Math/taskMath';
+import MathTask from '../../components/tasks/Math/taskMath';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -10,12 +10,18 @@ class Task {
     switch (taskName) {
       case 'calk':
         template = MathTemplate;
-        task = mathTask;
+        task = new MathTask();
         break;
       default:
         break;
     }
-    return task.draw(template, task);
+    task.draw(template);
+    const current = task;
+    $('.js-answer').on('click', function checkTaskResult(e) {
+      e.preventDefault();
+      $('#demoModal').modal('hide');
+      Task.taskResult = current.checkResult();
+    });
   }
 
   static getResult(taskName) {
@@ -23,7 +29,7 @@ class Task {
   }
 
   constructor() {
-    this.taskResult = false;
+    this.taskResult = null;
   }
 }
 

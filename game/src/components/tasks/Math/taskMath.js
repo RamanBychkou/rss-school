@@ -3,21 +3,17 @@ import template from './taskMath.template';
 import './taskMath.css';
 
 class taskMath {
-  static draw() {
+  draw() {
     const contentEl = document.querySelector('#demoModal .modal-body');
     contentEl.insertAdjacentHTML('beforeend', template);
     $('#cast').remove();
-    const taskLogic = this.createTaskLogic();
-    document.querySelector('.taskWrapper form').insertAdjacentHTML('afterbegin', taskLogic.task);
+    console.log(this);
+    this.taskLogic = this.createTaskLogic();
+    document.querySelector('.taskWrapper form').insertAdjacentHTML('afterbegin', this.taskLogic.task);
     $('#demoModal').modal({});
-    $('.js-answer').on('click', (e) => {
-      e.preventDefault();
-      $('#demoModal').modal('hide');
-      this.checkResult(taskLogic.result);
-    });
   }
 
-  static createTaskLogic() {
+  createTaskLogic() {
     const taskInfo = {
       firstArgs: this.randomInteger(0, 100),
       secondArgs: this.randomInteger(0, 100),
@@ -53,18 +49,22 @@ class taskMath {
     return taskInfo;
   }
 
-  static randomInteger(min, max) {
+  randomInteger(min, max) {
     let rand = min + Math.random() * (max + 1 - min);
     rand = Math.floor(rand);
     return rand;
   }
 
-  static checkResult(result) {
-    const value = $('form > input').val();
-    if (value === result) {
+  checkResult() {
+    const value = +($('form > input').val());
+    if (value === this.taskLogic.result) {
       return true;
     }
     return false;
+  }
+
+  constructor() {
+    this.taskLogic = null;
   }
 }
 

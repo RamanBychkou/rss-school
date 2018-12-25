@@ -18,8 +18,6 @@ import Task from './screens/task/task';
 
 const setPlayerName = async (gameState) => {
   const playerName = await ChoosePlayerName.getNewPlayerName();
-
-  console.log('playerName', playerName); // eslint-disable-line no-console
   gameState.setPlayerName(playerName);
 
   Nav.update(gameState);
@@ -27,19 +25,10 @@ const setPlayerName = async (gameState) => {
 
 const getBattleResult = async (gameState) => {
   await setPlayerName(gameState);
-  const Game = new Battle();
+  // отрисовка битвы
+  const game = new Battle();
   Battle.draw(gameState);
-  $('.js-attack').on('click', () => {
-    const chosenCast = Cast.getPlayerCast();
-    $('.taskWrapper').on('click', async (e) => {
-      $('#demoModal').modal('hide');
-      await pause(1000);
-      const taskName = e.target.id;
-      const taskResult = await Task.getPlayerCast(taskName);
-      Game.attack(taskResult);
-    });
-  });
-
+  // событие на Атаковать
 
   // start animation
   // await pause(3000);
@@ -56,7 +45,6 @@ const startApp = () => {
   window.$ = $; // for debug
 
   const gameState = new GameState();
-  window.gameState = gameState; // antipatter - need use carefully!
   setGameState(gameState);
 
   Nav.draw();
