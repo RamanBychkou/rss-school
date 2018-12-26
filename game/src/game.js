@@ -25,11 +25,11 @@ export class GameState {
     }
   }
 
-  static getWinScreen() {
+  getWinScreen() {
     console.log('win');
   }
 
-  static getGameOverSreen() {
+  getGameOverSreen() {
     console.log('gameover');
   }
 }

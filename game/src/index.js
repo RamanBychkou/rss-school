@@ -27,6 +27,7 @@ const getBattleResult = async (gameState) => {
   await setPlayerName(gameState);
   // отрисовка битвы
   const game = new Battle();
+  Battle.gameState = gameState;
   Battle.draw(gameState);
   // событие на Атаковать
 

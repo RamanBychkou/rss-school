@@ -44,37 +44,34 @@ class Battle {
         const taskName = e.target.id;
         // отрисовка отдельного таска
         Task.getPlayerCast(taskName);
-        const that = Battle;
         function check() {
-          console.log(this);
-          console.log(Task);
           e.preventDefault();
+
           this.checkTaskState(Task);
         }
-        $('#demoModal form .btn').on('click', $.proxy(check, this, e));
+        $('.js-answer').on('click', $.proxy(check, this, e));
       });
     });
   }
 
-  attack(target) {
-    let person;
-    if (target === true) {
-      person = this.monster;
-    } else {
-      person = this.player;
-    }
-    const { view } = person;
-    view.healthy -= this.subtractHealthy;
-    return {
-      player: this.player.view.healthy,
-      monster: this.monster.view.healthy,
+  static attack(target) {
+    const tempState = {
+      player: Battle.gameState.playerHealthy,
+      monster: Battle.gameState.monsterHealthy,
     };
+    const subtractHealthy = 20;
+    if (target === true) {
+      tempState.monster -= subtractHealthy;
+    } else {
+      tempState.player -= subtractHealthy;
+    }
+    Battle.gameState.update(tempState);
+    console.log(Battle.gameState);
   }
 
   static checkTaskState() {
     const resultRound = Task.taskResult;
-    const at = Battle.attack(resultRound);
-    console.log(at);
+    Battle.attack(resultRound);
   }
 }
 
