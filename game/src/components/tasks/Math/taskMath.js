@@ -15,8 +15,8 @@ class taskMath {
 
   createTaskLogic() {
     const taskInfo = {
-      firstArgs: this.randomInteger(0, 100),
-      secondArgs: this.randomInteger(0, 100),
+      firstArgs: this.randomInteger(1, 10),
+      secondArgs: this.randomInteger(1, 10),
       operator: this.randomInteger(1, 4),
       result: undefined,
     };

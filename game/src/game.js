@@ -1,4 +1,6 @@
 // import { stat } from 'fs';
+import WinScreen from './screens/winScreen/winScreen';
+import GameOverScreen from './screens/gameOverScreen/gameOverScreen';
 
 export class GameState {
   constructor() {
@@ -19,18 +21,10 @@ export class GameState {
 
   controlState() {
     if (this.monsterHealthy <= 0) {
-      this.getWinScreen();
+      WinScreen.draw();
     } else if (this.playerHealthy <= 0) {
-      this.getGameOverSreen();
+      GameOverScreen.draw();
     }
-  }
-
-  getWinScreen() {
-    console.log('win');
-  }
-
-  getGameOverSreen() {
-    console.log('gameover');
   }
 }
 
