@@ -1,5 +1,5 @@
 import template from './header.template';
-import './header.css';
+import './header.sass';
 
 class Header {
   static draw() {

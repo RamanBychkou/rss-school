@@ -7,27 +7,27 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
-        test: /\.css$/,
-        use: ['style-loader','css-loader']
+        test: /\.sass$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.html$/,
         exclude: /node_modules/,
         use: {
-          loader: 'html-loader'
-        }
-      }
-    ]
+          loader: 'html-loader',
+        },
+      },
+    ],
   },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
-  }
+    port: 9000,
+  },
 };

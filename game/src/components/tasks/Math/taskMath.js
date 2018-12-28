@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import template from './taskMath.template';
-import './taskMath.css';
+import './taskMath.sass';
 
 class taskMath {
   draw() {
