@@ -1,5 +1,5 @@
-import template from './header.template';
-import './header.scss';
+import template from './homeScreen.template';
+import './homeScreen.scss';
 
 class Header {
   static draw() {

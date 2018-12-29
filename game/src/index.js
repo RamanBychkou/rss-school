@@ -7,7 +7,7 @@ import { GameState, setGameState } from './game';
 import Header from './components/header/header';
 import Nav from './components/navigation/nav';
 
-import './index.sass';
+import './index.scss';
 import ModalDialog from './components/modal-dialog/modal-dialog';
 import ChoosePlayerName from './screens/choosePlayerName/choosePlayerName';
 import Battle from './screens/battle/battle';

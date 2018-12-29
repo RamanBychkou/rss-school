@@ -1,5 +1,5 @@
 import template from './modal-dialog.template';
-import './modal-dialog.sass';
+import './modal-dialog.scss';
 
 class ModalDialog {
   static draw() {
