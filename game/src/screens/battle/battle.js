@@ -3,7 +3,8 @@ import $ from 'jquery';
 import template from './battle.template';
 import Cast from '../cast/cast';
 import Task from '../task/task';
-import { pause } from '../../utils';
+import { pause, loadImage } from '../../utils';
+import BattleAnimation from './battle.annimation';
 
 import './battle.scss';
 
@@ -12,6 +13,10 @@ class Battle {
     const contentEl = document.querySelector('#content');
     contentEl.innerHTML = template;
     $('body').removeClass('main-bg').addClass('battle-bg');
+    // BattleAnimation.drawPlayer(playerImg);
+    const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right'];
+    const playerImg = loadImage(nameImg, 'player');
+    const monsterImg = loadImage(nameImg, 'monster');
     $('.js-player-card .js-name').text(gameState.playerName);
     this.gameLoop(gameState);
   }
@@ -64,8 +69,10 @@ class Battle {
     const subtractHealthy = 20;
     if (target === true) {
       tempState.monster -= subtractHealthy;
+      BattleAnimation.monsterAttackAnimation(tempState.monster);
     } else {
       tempState.player -= subtractHealthy;
+      BattleAnimation.playerAttackAnimation(tempState.player);
     }
     Battle.gameState.update(tempState);
     console.log(Battle.gameState);

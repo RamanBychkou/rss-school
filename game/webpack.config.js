@@ -1,4 +1,5 @@
 const path = require('path');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = {
   module: {
@@ -8,6 +9,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
+          outputPath: './',
         },
       },
       {
@@ -30,6 +32,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new WriteFilePlugin(),
+  ],
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
