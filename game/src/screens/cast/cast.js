@@ -4,7 +4,7 @@ import template from './cast.template';
 
 class Cast {
   static draw() {
-    const contentEl = document.querySelector('#demoModal .modal-body');
+    const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.innerHTML = template;
 
     $('#demoModal').modal({});

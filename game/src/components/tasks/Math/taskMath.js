@@ -4,9 +4,9 @@ import './taskMath.scss';
 
 class taskMath {
   draw() {
-    const contentEl = document.querySelector('#demoModal .modal-body');
+    $('.cast').remove();
+    const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.insertAdjacentHTML('beforeend', template);
-    $('#cast').remove();
     console.log(this);
     this.taskLogic = this.createTaskLogic();
     document.querySelector('.taskWrapper form').insertAdjacentHTML('afterbegin', this.taskLogic.task);

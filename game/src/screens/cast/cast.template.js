@@ -1,21 +1,25 @@
 export default `
-<section id="cast" >
-  <div class="title">
-    <h2>Need to choose cast</h2>
+<div class="modal-header cast">
+  <h5 class="modal-title" id="demoModalLabel">Need to choose cast</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body cast">
+    <div class="row taskWrapper">
+      <div class="col-md-3 ">
+      <button class="btn close" id="calk" >Calculate</a>
+      </div>
+      <div class="col-md-3 task">
+      <button class="btn close" id="calk" >Calculate</a>
+      </div>
+      <div class="col-md-3 task">
+      <button class="btn close" id="calk" >Calculate</a>
+      </div>
+      <div class="col-md-3 task">
+        <button class="btn close" id="calk"  >Calculate</a>
+      </div>
+    </div>
   </div>
-  <div class="row taskWrapper">
-    <div class="col-md-3 ">
-    <button class="btn close" id="calk" >Calculate</a>
-    </div>
-    <div class="col-md-3 task">
-    <button class="btn close" id="calk" >Calculate</a>
-    </div>
-    <div class="col-md-3 task">
-    <button class="btn close" id="calk" >Calculate</a>
-    </div>
-    <div class="col-md-3 task">
-      <button class="btn close" id="calk"  >Calculate</a>
-    </div>
-  </div>
-</section>
+</div>
 `;

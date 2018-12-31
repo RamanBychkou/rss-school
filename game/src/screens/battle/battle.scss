@@ -1,0 +1,29 @@
+.battle-bg {
+  background-image: url('./img/background-battle.png');
+}
+.battle-bg nav a {
+  color: #fff;
+}
+.battle-bg .btn {
+  background-color: rgb(237,147,135);
+}
+.hp {
+  width: 300px;
+  height: 10px;
+  border: 1px solid #fff;
+  padding: 0 !important;
+  margin-top: 10px;
+  span {
+    display: block;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+  }
+}
+.hpWrapper + div {
+  text-align: center;
+}
+.healthyContainer {
+  margin: 30px 0;
+}
+ 

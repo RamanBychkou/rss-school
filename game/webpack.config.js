@@ -4,6 +4,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -13,7 +20,6 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-       
       },
       {
         test: /\.html$/,

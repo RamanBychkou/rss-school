@@ -1,0 +1,14 @@
+.modal-content * {
+  color: #fff;
+}
+.modal-content {
+  padding: 20px;
+  & .modal-body .btn {
+    padding: 5px 20px;
+    background-color: #000000f2;
+   
+  }
+  & .modal-body .btn:hover {
+    color: #fff;
+  }
+}

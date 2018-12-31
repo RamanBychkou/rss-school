@@ -5,11 +5,13 @@ import Cast from '../cast/cast';
 import Task from '../task/task';
 import { pause } from '../../utils';
 
+import './battle.scss';
+
 class Battle {
   static draw(gameState) {
     const contentEl = document.querySelector('#content');
     contentEl.innerHTML = template;
-
+    $('body').removeClass('main-bg').addClass('battle-bg');
     $('.js-player-card .js-name').text(gameState.playerName);
     this.gameLoop(gameState);
   }

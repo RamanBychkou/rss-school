@@ -1,4 +1,17 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 body {
-  background-color: rgba(0,0,0,0.3);
+  background-size: cover;
+  background-repeat: no-repeat;
+};
+.main-bg {
+  background-image: url('./img/game_background_1.png');
+}
+.modal-content {
+  background-image: url('./img/modal-bg.png');
+  background-size: cover;
+  
+}
+.modal-dialog {
+  max-height: 350px !important;
+  max-width: 700px !important;
 }

@@ -1,7 +1,20 @@
 export default `
 <section id="battle" class="container">
+<div class="row healthyContainer">
+  <div class="col-sm-4 hpWrapper">
+    <h2>Player: <span>MyName</span>
+    <div class="hp" id="playerHp"><span></span></div>
+  </div>
+  <div class="col-sm-4">
+    <button type="button" class="btn js-attack">Attack monster</button>
+  </div>
+  <div class="col-sm-4 hpWrapper">
+    <h2>Monster: <span>MyName</span>
+    <div class="hp" id="monsterHp"><span></span></div>
+  </div>
+</div>
 <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-4">
       <div id="player">
         <div class="player-card js-player-card" style="width: 18rem;">
           <img class="card-img-top" src="https://img.craftpix.net/2018/05/Raccoon-Sheep-and-Cat-2D-Game-Sprites.gif" alt="Card image cap">
@@ -13,10 +26,8 @@ export default `
         </div>
       </div>
     </div>
-    <div class="col-sm">
-    <button type="button" class="btn js-attack">Attack monster</button>
-    </div>
-    <div class="col-sm">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
       <div id="monster">
         <div class="monster-card" style="width: 18rem;">
           <img class="card-img-top" src=https://img.craftpix.net/2018/10/Free-Orc-Ogre-and-Goblin-Chibi-2D-Game-Sprites1.gif alt="Card image cap">
