@@ -7,16 +7,16 @@ export default `
 </div>
 <div class="modal-body cast">
     <div class="row taskWrapper">
-      <div class="col-md-3 ">
+      <div class="col-sm-3 ">
       <button class="btn close" id="calk" >Calculate</a>
       </div>
-      <div class="col-md-3 task">
+      <div class="col-sm-3 task">
       <button class="btn close" id="flags" >Flags</a>
       </div>
-      <div class="col-md-3 task">
-      <button class="btn close" id="calk" >Calculate</a>
+      <div class="col-sm-3 task">
+      <button class="btn close" id="translate" >Translate</a>
       </div>
-      <div class="col-md-3 task">
+      <div class="col-sm-3 task">
         <button class="btn close" id="calk"  >Calculate</a>
       </div>
     </div>

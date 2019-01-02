@@ -4,6 +4,8 @@ import MathTemplate from '../../components/tasks/Math/taskMath.template';
 import MathTask from '../../components/tasks/Math/taskMath';
 import Flags from '../../components/tasks/flags/flags';
 import flagsTemplate from '../../components/tasks/flags/flags.template';
+import Translate from '../../components/tasks/translate/translate';
+import translateTemlate from '../../components/tasks/translate/translate.template';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -17,6 +19,10 @@ class Task {
       case 'flags':
         template = flagsTemplate;
         task = new Flags();
+        break;
+      case 'translate':
+        template = translateTemlate;
+        task = new Translate();
         break;
       default:
         break;
