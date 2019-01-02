@@ -2,7 +2,7 @@ export default `
 <section id="battle" class="container">
 <div class="row healthyContainer">
   <div class="col-sm-4 hpWrapper">
-    <h2>Player: <span>MyName</span>
+    <h2>Player: <span id="playerName">MyName</span>
     <div class="hp" id="playerHp"><span></span></div>
   </div>
   <div class="col-sm-4">

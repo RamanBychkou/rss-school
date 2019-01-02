@@ -17,7 +17,7 @@ class Battle {
     const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right'];
     const playerImg = loadImage(nameImg, 'player');
     const monsterImg = loadImage(nameImg, 'monster');
-    $('.js-player-card .js-name').text(gameState.playerName);
+    $('#playerName').text(gameState.playerName);
     this.gameLoop(gameState);
   }
 
