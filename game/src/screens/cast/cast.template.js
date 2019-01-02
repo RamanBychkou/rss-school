@@ -11,7 +11,7 @@ export default `
       <button class="btn close" id="calk" >Calculate</a>
       </div>
       <div class="col-md-3 task">
-      <button class="btn close" id="calk" >Calculate</a>
+      <button class="btn close" id="flags" >Flags</a>
       </div>
       <div class="col-md-3 task">
       <button class="btn close" id="calk" >Calculate</a>

@@ -2,6 +2,8 @@ import $ from 'jquery';
 
 import MathTemplate from '../../components/tasks/Math/taskMath.template';
 import MathTask from '../../components/tasks/Math/taskMath';
+import Flags from '../../components/tasks/flags/flags';
+import flagsTemplate from '../../components/tasks/flags/flags.template';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -12,12 +14,16 @@ class Task {
         template = MathTemplate;
         task = new MathTask();
         break;
+      case 'flags':
+        template = flagsTemplate;
+        task = new Flags();
+        break;
       default:
         break;
     }
     task.draw(template);
     const current = task;
-    $('.js-answer').on('click', function checkTaskResult(e) {
+    $('.js-answer').on('click', (e) => {
       e.preventDefault();
       $('#demoModal').modal('hide');
       Task.taskResult = current.checkResult();
