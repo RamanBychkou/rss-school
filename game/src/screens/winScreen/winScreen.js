@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 import template from './winScreen.template';
+import './winScreen.scss';
 
 class WinScreen {
   static draw() {

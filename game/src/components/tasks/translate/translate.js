@@ -15,7 +15,9 @@ class Translate {
   }
 
   createTaskLogic(taskArray) {
-    const numberTask = this.randomInteger(0, 10);
+    const maxQuantity = 9;
+    const minQuantity = 0;
+    const numberTask = this.randomInteger(minQuantity, maxQuantity);
     const taskInfo = {
       task: taskArray[numberTask].task,
       result: taskArray[numberTask].answer,

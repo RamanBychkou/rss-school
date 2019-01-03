@@ -13,7 +13,9 @@ class Flags {
   }
 
   static async createTaskLogic(images) {
-    const numberImages = await Flags.randomInteger(1, 15);
+    const maxQantity = 15;
+    const minQantity = 1;
+    const numberImages = await Flags.randomInteger(minQantity, maxQantity);
     const taskInfo = {
       taskFlag: images[numberImages],
       taskResult: images[numberImages].alt,

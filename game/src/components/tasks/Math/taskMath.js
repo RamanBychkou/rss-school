@@ -14,10 +14,13 @@ class taskMath {
   }
 
   createTaskLogic() {
+    const maxQuantityArgs = 10;
+    const minQantityArgs = 1;
+    const maxQuantityOperator = 4;
     const taskInfo = {
-      firstArgs: this.randomInteger(1, 10),
-      secondArgs: this.randomInteger(1, 10),
-      operator: this.randomInteger(1, 4),
+      firstArgs: this.randomInteger(minQantityArgs, maxQuantityArgs),
+      secondArgs: this.randomInteger(minQantityArgs, maxQuantityArgs),
+      operator: this.randomInteger(minQantityArgs, maxQuantityOperator),
       result: undefined,
     };
     switch (taskInfo.operator) {
