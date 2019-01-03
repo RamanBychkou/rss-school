@@ -7,10 +7,10 @@ export default `
 </div>
 <div class="modal-body">
     <div class="row taskWrapper">
-      <figure>
+      <figure class="col-sm-6">
         <figcaption>Write the name country in field text</figcaption>
       </figure>
-      <form action="">
+      <form action="" class="col-sm-6">
         <input type="text" name="task">
         <button class="btn js-answer">Answer</button>
       </form>

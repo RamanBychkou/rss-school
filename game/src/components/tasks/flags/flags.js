@@ -61,7 +61,7 @@ class Flags {
   }
 
   static showTask(task) {
-    $('figure').prepend(task.taskFlag);
+    $('figure').append(task.taskFlag);
     $('#demoModal').modal({});
   }
 
