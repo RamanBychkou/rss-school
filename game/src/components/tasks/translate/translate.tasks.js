@@ -35,6 +35,10 @@ const tasks = [
     task: 'roof',
     answer: 'крыша',
   },
+  {
+    task: 'rabbit',
+    answer: 'кролик',
+  },
 ];
 
 export default tasks;

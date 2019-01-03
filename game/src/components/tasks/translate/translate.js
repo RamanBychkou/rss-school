@@ -18,6 +18,7 @@ class Translate {
     const maxQuantity = 9;
     const minQuantity = 0;
     const numberTask = this.randomInteger(minQuantity, maxQuantity);
+    console.log(numberTask); // for debug
     const taskInfo = {
       task: taskArray[numberTask].task,
       result: taskArray[numberTask].answer,

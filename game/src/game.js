@@ -21,7 +21,7 @@ export class GameState {
 
   controlState() {
     if (this.monsterHealthy <= 0) {
-      WinScreen.draw();
+      WinScreen.draw(this.playerName);
     } else if (this.playerHealthy <= 0) {
       GameOverScreen.draw();
     }

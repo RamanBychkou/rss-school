@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 import template from './gameOverScreen.template';
+import './gameOverScreen.scss';
 
 class GameOverScreen {
   static draw() {

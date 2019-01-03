@@ -29,16 +29,6 @@ const getBattleResult = async (gameState) => {
   const game = new Battle();
   Battle.gameState = gameState;
   Battle.draw(gameState);
-  // событие на Атаковать
-
-  // start animation
-  // await pause(3000);
-
-  // const chosenCast = await Cast.getPlayerCast();
-
-  // for debug - WIP
-  // TODO: need to remove
-  // alert('round finished!', chosenCast); // eslint-disable-line no-alert
 };
 
 
@@ -65,3 +55,5 @@ const startApp = () => {
 };
 
 startApp();
+
+export default { startApp, getBattleResult };
