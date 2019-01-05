@@ -2,14 +2,14 @@ export default `
 <section id="battle" class="container">
 <div class="row healthyContainer">
   <div class="col-sm-4 hpWrapper">
-    <h2>Player: <span id="playerName">MyName</span>
+    <h2 id="playerName"></h2>
     <div class="hp" id="playerHp"><span></span></div>
   </div>
   <div class="col-sm-4">
     <button type="button" class="btn js-attack">Attack monster</button>
   </div>
   <div class="col-sm-4 hpWrapper">
-    <h2>Monster: <span>MyName</span>
+    <h2 id="monsterName"></h2>
     <div class="hp" id="monsterHp"><span></span></div>
   </div>
 </div>

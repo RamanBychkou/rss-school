@@ -18,6 +18,7 @@ class Battle {
     const playerImg = loadImage(nameImg, 'player');
     const monsterImg = loadImage(nameImg, 'monster');
     $('#playerName').text(gameState.playerName);
+    $('#monsterName').text(gameState.monsterName);
     this.gameLoop(gameState);
   }
 

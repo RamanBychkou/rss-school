@@ -12,10 +12,8 @@ import './index.scss';
 import ModalDialog from './components/modal-dialog/modal-dialog';
 import ChoosePlayerName from './screens/choosePlayerName/choosePlayerName';
 import Battle from './screens/battle/battle';
-import Cast from './screens/cast/cast';
 import Score from './screens/score/score';
-import { pause } from './utils';
-import Task from './screens/task/task';
+import Monster from './components/monster/monster';
 
 const setPlayerName = async (gameState) => {
   const playerName = await ChoosePlayerName.getNewPlayerName();
@@ -26,6 +24,10 @@ const setPlayerName = async (gameState) => {
 
 const getBattleResult = async (gameState) => {
   await setPlayerName(gameState);
+  // create monster
+  const monster = new Monster();
+  monster.createNameMonster();
+  gameState.setMonsterName(monster.getMonsterName());
   // отрисовка битвы
   const game = new Battle();
   Battle.gameState = gameState;

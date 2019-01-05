@@ -6,12 +6,17 @@ import Score from './screens/score/score';
 export class GameState {
   constructor() {
     this.playerName = '';
+    this.monsterName = '';
     this.playerHealthy = 100;
     this.monsterHealthy = 100;
   }
 
   setPlayerName(name = '') {
     this.playerName = name;
+  }
+
+  setMonsterName(name = '') {
+    this.monsterName = name;
   }
 
   update(state) {
