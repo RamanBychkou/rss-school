@@ -1,5 +1,6 @@
 const path = require('path');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   module: {
@@ -34,7 +35,21 @@ module.exports = {
   },
   plugins: [
     new WriteFilePlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': "jquery'",
+      'window.$': 'jquery',
+    }),
   ],
+  resolve: {
+    alias: {
+      // bind version of jquery-ui
+      'jquery-ui': 'jquery-ui/jquery-ui.js',
+      // bind to modules;
+      modules: path.join(__dirname, 'node_modules'),
+    },
+  },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {

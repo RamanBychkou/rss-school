@@ -29,4 +29,46 @@
 .hpWrapper h2 {
   color: #ffffff;
 }
+.battlefield {
+  position: relative;
+  & img {
+    position: absolute;
+    bottom: 155px;
+    left: -140px;
+  }
+}
+.attack-player {
+  animation-duration: 3s;
+  animation-name: attack-pl;
+  animation-timing-function: linear;
+}
+@keyframes attack-pl {
+  from {
+    display: none;
+    bottom: 155px;
+    left: -140px;
+  }
+  to {
+    bottom: 175px;
+    left: 430px;
+  }
+}
+
+.attack-monster {
+  animation-duration: 3s;
+  animation-name: attack-m;
+  animation-timing-function: linear;
+}
+@keyframes attack-m {
+  from {
+    display: none;
+    bottom: 155px;
+    left: 338px;
+    transform: rotate(360deg)
+  }
+  to {
+    bottom: 175px;
+    left: -140px;
+  }
+}
  

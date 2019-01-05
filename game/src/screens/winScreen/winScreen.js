@@ -12,7 +12,7 @@ class WinScreen {
     $('#battle').remove();
     $('.js-start-game').on('click', () => {
       const gameState = new GameState();
-      setGameState(gameState);
+      gameState.setPlayerName(name);
       console.log(Battle)
       const game = new Battle();
       Battle.gameState = gameState;

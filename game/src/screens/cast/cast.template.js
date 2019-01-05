@@ -17,7 +17,7 @@ export default `
       <button class="btn close" id="translate" >Translate</a>
       </div>
       <div class="col-sm-3 task">
-        <button class="btn close" id="calk"  >Calculate</a>
+        <button class="btn close" id="collection"  >Collection Letters</a>
       </div>
     </div>
   </div>

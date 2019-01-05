@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime';
 import 'bootstrap';
 import $ from 'jquery';
 
+
 import { GameState, setGameState } from './game';
 
 import Header from './components/header/header';

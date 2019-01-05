@@ -6,6 +6,8 @@ import Flags from '../../components/tasks/flags/flags';
 import flagsTemplate from '../../components/tasks/flags/flags.template';
 import Translate from '../../components/tasks/translate/translate';
 import translateTemlate from '../../components/tasks/translate/translate.template';
+import Collection from '../../components/tasks/collectionLetters/collection.';
+import collectionTemplate from '../../components/tasks/collectionLetters/collection.template';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -23,6 +25,10 @@ class Task {
       case 'translate':
         template = translateTemlate;
         task = new Translate();
+        break;
+      case 'collection':
+        template = translateTemlate;
+        task = new Collection();
         break;
       default:
         break;

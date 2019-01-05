@@ -1,0 +1,16 @@
+.task .letters {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid #fff;
+  margin: 10px;   
+}
+.task .row:first-child {
+  position: relative;
+}
+td {
+  border: 1px solid #fff;
+  margin: 10px;
+  width: 25px;
+  height: 25px;
+}

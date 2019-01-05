@@ -27,11 +27,19 @@ class BattleAnimation {
   }
 
   static playerAttackAnimation(value) {
+    $('.battlefield').append(BattleAnimation.monsterImg['attack']);
     $('#playerHp span').css('width', `${value}%`);
+    $('.battlefield img').addClass('attack-monster');
+    document.querySelector('.attack-monster').addEventListener('animationend', () => $('.attack-monster').remove());
   }
 
   static monsterAttackAnimation(value) {
+    $('.battlefield').append(BattleAnimation.playerImg['attack']);
+    
+    $('.battlefield img').addClass('attack-player');
+    document.querySelector('.attack-player').addEventListener('animationend', () => $('.attack-player').remove());
     $('#monsterHp span').css('width', `${value}%`);
+
   }
 }
 export default BattleAnimation;

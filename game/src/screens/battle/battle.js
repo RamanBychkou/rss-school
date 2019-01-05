@@ -14,7 +14,7 @@ class Battle {
     contentEl.innerHTML = template;
     $('body').removeClass('main-bg').addClass('battle-bg');
     // BattleAnimation.drawPlayer(playerImg);
-    const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right'];
+    const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right', 'attack'];
     const playerImg = loadImage(nameImg, 'player');
     const monsterImg = loadImage(nameImg, 'monster');
     $('#playerName').text(gameState.playerName);

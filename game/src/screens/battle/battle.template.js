@@ -19,7 +19,7 @@ export default `
     <canvas width="400px" height="400px"></canvas>
     </div>
   </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4 battlefield"></div>
     <div class="col-sm-4">
       <div id="monster">
         <canvas width="400px" height="400px"></canvas>

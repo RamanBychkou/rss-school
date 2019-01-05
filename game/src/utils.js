@@ -17,8 +17,10 @@ export const loadImage = (nameImages, who) => {
       numResourcesLoaded += 1;
       if (numResourcesLoaded === totalResources) {
         if (who === 'monster') {
+          BattleAnimation.monsterImg = images;
           BattleAnimation.drawMonster(images);
         } else {
+          BattleAnimation.playerImg = images;
           BattleAnimation.drawPlayer(images);
         }
       }
