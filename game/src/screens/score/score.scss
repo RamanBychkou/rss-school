@@ -1,0 +1,18 @@
+.scoreWrapper {
+  width: 200px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #25ff2266;
+  & .title {
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    width: 80%;
+    margin: 0 auto;
+  }
+  & .score {
+    padding: 10px;
+    & li {
+      list-style: none;
+    }
+  }
+}

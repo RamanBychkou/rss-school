@@ -13,7 +13,7 @@ import ModalDialog from './components/modal-dialog/modal-dialog';
 import ChoosePlayerName from './screens/choosePlayerName/choosePlayerName';
 import Battle from './screens/battle/battle';
 import Cast from './screens/cast/cast';
-
+import Score from './screens/score/score';
 import { pause } from './utils';
 import Task from './screens/task/task';
 
@@ -32,26 +32,32 @@ const getBattleResult = async (gameState) => {
   Battle.draw(gameState);
 };
 
-
-const startApp = () => {
-  window.$ = $; // for debug
-
+const startGame = () => {
   const gameState = new GameState();
   setGameState(gameState);
-
-  Nav.draw();
-  Header.draw();
-  ModalDialog.draw();
-
-
-  $('.js-start-game').on('click', async () => {
-    await getBattleResult(gameState);
-  });
+  getBattleResult(gameState);
+  
 
   $('.js-choose-player-name-nav').on('click', async (e) => {
     e.preventDefault();
 
     await setPlayerName(gameState);
+  });
+};
+
+const startApp = () => {
+  window.$ = $; // for debug
+
+  Nav.draw();
+  Header.draw();
+  ModalDialog.draw();
+  Score.score = {};
+  $('.js-start-game').on('click', async () => {
+    startGame();
+  });
+  $('#score').on('click', (e) => {
+    e.preventDefault();
+    Score.draw();
   });
 };
 

@@ -14,7 +14,7 @@ export default `
         </button>
          </li>
         <li class="nav-item">
-        <a class="nav-link" href="#">Score</a>
+        <a class="nav-link" href="#" id="score">Score</a>
         </li>
       </ul>
       <button type="button" class="btn btn-primary js-show-player-name js-choose-player-name-nav">
