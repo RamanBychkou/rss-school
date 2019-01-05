@@ -5,5 +5,9 @@ const tasks = [
   'mountain',
   'miracle',
   'tiger',
+  'arrow',
+  'mouse',
+  'town',
+  'monster',
 ];
 export default tasks;

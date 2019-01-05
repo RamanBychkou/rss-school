@@ -8,6 +8,8 @@ import Translate from '../../components/tasks/translate/translate';
 import translateTemlate from '../../components/tasks/translate/translate.template';
 import Collection from '../../components/tasks/collectionLetters/collection.';
 import collectionTemplate from '../../components/tasks/collectionLetters/collection.template';
+import Listening from '../../components/tasks/listening/listening';
+import listeningTemplate from '../../components/tasks/listening/listening.template';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -27,8 +29,12 @@ class Task {
         task = new Translate();
         break;
       case 'collection':
-        template = translateTemlate;
+        template = collectionTemplate;
         task = new Collection();
+        break;
+      case 'listening':
+        template = listeningTemplate;
+        task = new Listening();
         break;
       default:
         break;
