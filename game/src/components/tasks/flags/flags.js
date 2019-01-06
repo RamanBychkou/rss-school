@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import template from './flags.template';
+import { randomNumber } from '../../../utils';
 import './flags.scss';
 
 class Flags {
@@ -15,24 +16,20 @@ class Flags {
   static async createTaskLogic(images) {
     const maxQantity = 15;
     const minQantity = 1;
-    const numberImages = await Flags.randomInteger(minQantity, maxQantity);
+    // task choose with random number, max - max id task in array tasks
+    const numberImages = await randomNumber(minQantity, maxQantity);
     const taskInfo = {
       taskFlag: images[numberImages],
-      taskResult: images[numberImages].alt,
+      result: images[numberImages].alt,
     };
     Flags.taskLogic = taskInfo;
     Flags.showTask(taskInfo);
   }
 
-  static randomInteger(min, max) {
-    let rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
-  }
 
   checkResult() {
     const value = $('form > input').val().toLowerCase();
-    if (value === Flags.taskLogic.taskResult) {
+    if (value === Flags.taskLogic.result) {
       return true;
     }
     return false;
@@ -40,7 +37,6 @@ class Flags {
 
   setData(task) {
     this.answers.taskLogic = task;
-    console.log(this);
   }
 
   static loadImage(nameImages, answers) {

@@ -2,34 +2,31 @@ import $ from 'jquery';
 import template from './listening.template';
 import './listening.scss';
 import tasks from './listening.tasks';
+import { randomNumber } from '../../../utils';
 
 class Listening {
   async draw() {
     $('.cast').remove();
     const contentEl = document.querySelector('#demoModal .modal-content');
+    // insert template in document
     contentEl.insertAdjacentHTML('beforeend', template);
-    console.log(this);
-    this.taskLogic = this.createTaskLogic();
+    // create task logic
+    this.taskLogic = Listening.createTaskLogic();
     const loadFile = await this.loadAudio();
     $('.taskWrapper').append(loadFile);
     $('#demoModal').modal({});
   }
 
-  createTaskLogic() {
+  static createTaskLogic() {
+    // task choose with random number, max - max id task in array tasks
     const maxQuantityArgs = 9;
     const minQantityArgs = 0;
-    const currentTask = tasks[this.randomInteger(minQantityArgs, maxQuantityArgs)];
+    const currentTask = tasks[randomNumber(minQantityArgs, maxQuantityArgs)];
     const taskInfo = {
       task: currentTask,
       result: currentTask,
     };
     return taskInfo;
-  }
-
-  randomInteger(min, max) {
-    let rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
   }
 
   checkResult() {

@@ -1,35 +1,30 @@
 import $ from 'jquery';
 import template from './translate.template';
-import './translate.scss';
 import tasks from './translate.tasks';
+import { randomNumber } from '../../../utils';
+import './translate.scss';
+
 
 class Translate {
   draw() {
     $('.cast').remove();
     const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.insertAdjacentHTML('beforeend', template);
-    console.log(this);
-    this.taskLogic = this.createTaskLogic(tasks);
+    this.taskLogic = Translate.createTaskLogic(tasks);
     $('label > span ').text(this.taskLogic.task);
     $('#demoModal').modal({});
   }
 
-  createTaskLogic(taskArray) {
+  static createTaskLogic(taskArray) {
+    // task choose with random number, max - max id task in array tasks
     const maxQuantity = 9;
     const minQuantity = 0;
-    const numberTask = this.randomInteger(minQuantity, maxQuantity);
-    console.log(numberTask); // for debug
+    const numberTask = randomNumber(minQuantity, maxQuantity);
     const taskInfo = {
       task: taskArray[numberTask].task,
       result: taskArray[numberTask].answer,
     };
     return taskInfo;
-  }
-
-  randomInteger(min, max) {
-    let rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
   }
 
   checkResult() {

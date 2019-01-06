@@ -1,26 +1,26 @@
 import $ from 'jquery';
 import template from './taskMath.template';
+import { randomNumber } from '../../../utils';
 import './taskMath.scss';
 
-class taskMath {
+class TaskMath {
   draw() {
     $('.cast').remove();
     const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.insertAdjacentHTML('beforeend', template);
-    console.log(this);
-    this.taskLogic = this.createTaskLogic();
+    this.taskLogic = TaskMath.createTaskLogic();
     document.querySelector('.taskWrapper form').insertAdjacentHTML('afterbegin', this.taskLogic.task);
     $('#demoModal').modal({});
   }
 
-  createTaskLogic() {
+  static createTaskLogic() {
     const maxQuantityArgs = 10;
     const minQantityArgs = 1;
     const maxQuantityOperator = 4;
     const taskInfo = {
-      firstArgs: this.randomInteger(minQantityArgs, maxQuantityArgs),
-      secondArgs: this.randomInteger(minQantityArgs, maxQuantityArgs),
-      operator: this.randomInteger(minQantityArgs, maxQuantityOperator),
+      firstArgs: randomNumber(minQantityArgs, maxQuantityArgs),
+      secondArgs: randomNumber(minQantityArgs, maxQuantityArgs),
+      operator: randomNumber(minQantityArgs, maxQuantityOperator),
       result: undefined,
     };
     switch (taskInfo.operator) {
@@ -52,12 +52,6 @@ class taskMath {
     return taskInfo;
   }
 
-  randomInteger(min, max) {
-    let rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
-  }
-
   checkResult() {
     const value = +($('form > input').val());
     if (value === this.taskLogic.result) {
@@ -71,4 +65,4 @@ class taskMath {
   }
 }
 
-export default taskMath;
+export default TaskMath;

@@ -3,6 +3,7 @@ import '../../../../node_modules/jquery-ui/ui/widgets/draggable';
 import '../../../../node_modules/jquery-ui/ui/widgets/droppable';
 import template from './collection.template';
 import tasks from './collection.tasks';
+import { randomNumber } from '../../../utils';
 import './collection.scss';
 
 
@@ -11,17 +12,17 @@ class Collection {
     $('.cast').remove();
     const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.insertAdjacentHTML('beforeend', template);
-    console.log(this);
-    this.taskLogic = this.createTaskLogic(tasks);
-    //document.querySelector('.taskWrapper form').insertAdjacentHTML('afterbegin', this.taskLogic.task);
-    this.showTask(this.taskLogic);
+    this.taskLogic = Collection.createTaskLogic(tasks);
+    // insert task in template
+    Collection.showTask(this.taskLogic);
     $('#demoModal').modal({});
   }
 
-  createTaskLogic(task) {
+  static createTaskLogic(task) {
+    // task choose with random number, max - max id task in array tasks
     const maxQuantityArgs = 6;
     const minQantityArgs = 1;
-    const random = this.randomInteger(minQantityArgs, maxQuantityArgs);
+    const random = randomNumber(minQantityArgs, maxQuantityArgs);
     const taskArray = task[random].split('');
     const taskInfo = {
       task: taskArray.sort(),
@@ -31,16 +32,10 @@ class Collection {
     return taskInfo;
   }
 
-  randomInteger(min, max) {
-    let rand = min + Math.random() * (max + 1 - min);
-    rand = Math.floor(rand);
-    return rand;
-  }
-
   checkResult() {
     let value = '';
-    let arrayAnswer = $('#targetTable').children();
-    let arrayAnswerLength = arrayAnswer.length;
+    const arrayAnswer = $('#targetTable').children();
+    const arrayAnswerLength = arrayAnswer.length;
     for (let i = 0; i < arrayAnswerLength; i += 1) {
       const idElement = arrayAnswer[i].id;
       value += idElement;
@@ -51,7 +46,7 @@ class Collection {
     return false;
   }
 
-  showTask(task) {
+  static showTask(task) {
     const quantityLetters = task.task.length;
     const fragmentAnswer = document.createDocumentFragment();
     const fragmentLetters = document.createDocumentFragment();
@@ -62,11 +57,11 @@ class Collection {
     letterWrapper.className = 'row lettersField';
     fragmentLetters.appendChild(letterWrapper);
     for (let i = 0; i < quantityLetters; i += 1) {
-      let cell = document.createElement('td');
+      const cell = document.createElement('td');
       fragmentAnswer.querySelector('#targetTable').appendChild(cell);
-      let outerElement = document.createElement('div');
+      const outerElement = document.createElement('div');
       outerElement.className = 'letters';
-      let innerElement = document.createElement('p');
+      const innerElement = document.createElement('p');
       innerElement.id = task.task[i];
       fragmentLetters.querySelector('.lettersField').appendChild(outerElement);
       fragmentLetters.querySelector('.lettersField .letters:last-child').appendChild(innerElement);
@@ -76,12 +71,12 @@ class Collection {
     $('.task').append(fragmentLetters);
     $('.letters p').draggable();
     $('td').droppable({
-      over: function(event, ui) { 
-       let elDrag = ui.draggable[0].id
-       this.id = '';
-       this.id = elDrag;
-      }
-   });
+      over(event, ui) {
+        const elDrag = ui.draggable[0].id;
+        this.id = '';
+        this.id = elDrag;
+      },
+    });
   }
 
   constructor() {
