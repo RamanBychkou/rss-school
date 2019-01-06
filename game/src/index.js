@@ -38,7 +38,6 @@ const startGame = () => {
   const gameState = new GameState();
   setGameState(gameState);
   getBattleResult(gameState);
-  
 
   $('.js-choose-player-name-nav').on('click', async (e) => {
     e.preventDefault();

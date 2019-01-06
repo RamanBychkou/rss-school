@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 import template from './battle.template';
+import Spell from '../../components/spell/spell';
 import Cast from '../cast/cast';
 import Task from '../task/task';
 import { pause, loadImage } from '../../utils';
@@ -42,23 +43,29 @@ class Battle {
   }
 
   static gameLoop(gameState) {
-    $('.js-attack').on('click', (e) => {
-      // экран с тасками
-      console.log(gameState);
-      const chosenCast = Cast.getPlayerCast();
-      // выбор таска
-      $('.taskWrapper').on('click', async (e) => {
-        $('#demoModal').modal('hide');
-        await pause(1000);
-        const taskName = e.target.id;
-        // отрисовка отдельного таска
-        Task.getPlayerCast(taskName);
-        function check() {
-          e.preventDefault();
-
-          this.checkTaskState(Task);
+    $('.js-spell').on('click', () => {
+      Spell.draw();
+      $('.js-attack').on('click', (event) => {
+        // экран с тасками
+        if (event.target.className !== 'js-attack') {
+          Battle.idSpell = event.target.parentElement.id;
+        } else {
+          Battle.idSpell = event.target.id;
         }
-        $('.js-answer').on('click', $.proxy(check, this, e));
+        const chosenCast = Cast.getPlayerCast();
+        // выбор таска
+        $('.taskWrapper').on('click', async (e) => {
+          $('#demoModal').modal('hide');
+          await pause(1000);
+          const taskName = e.target.id;
+          // отрисовка отдельного таска
+          Task.getPlayerCast(taskName);
+          function check() {
+            e.preventDefault();
+            this.checkTaskState(Task);
+          }
+          $('.js-answer').on('click', $.proxy(check, this, e));
+        });
       });
     });
   }
@@ -69,15 +76,32 @@ class Battle {
       monster: Battle.gameState.monsterHealthy,
     };
     const subtractHealthy = 20;
+    const maxHealthy = 100;
+    // if correct answer
     if (target === true) {
-      tempState.monster -= subtractHealthy;
-      BattleAnimation.monsterAttackAnimation(tempState.monster);
+      // check type spell
+      switch (Battle.idSpell) {
+        case 'spell-medical':
+          if (tempState.player === maxHealthy) {
+            alert('You are not injured');
+          } else {
+            tempState.player += subtractHealthy;
+            BattleAnimation.playerMedical(tempState.player);
+          }
+          break;
+        case 'spell-attack':
+          tempState.monster -= subtractHealthy;
+          BattleAnimation.monsterAttackAnimation(tempState.monster);
+          break;
+        default:
+          break;
+      }
+      // if incorrect answet
     } else {
       tempState.player -= subtractHealthy;
       BattleAnimation.playerAttackAnimation(tempState.player);
     }
     Battle.gameState.update(tempState);
-    console.log(Battle.gameState);
   }
 
   static checkTaskState() {

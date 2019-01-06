@@ -7,7 +7,7 @@ export default `
       <div class="hp" id="playerHp"><span></span></div>
     </div>
     <div class="col-sm-4">
-      <button type="button" class="btn js-attack">Attack monster</button>
+      <button type="button" class="btn js-spell">Attack monster</button>
     </div>
     <div class="col-sm-4 hpWrapper">
       <h2 id="monsterName"></h2>
