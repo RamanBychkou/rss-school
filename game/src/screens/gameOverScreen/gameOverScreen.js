@@ -5,7 +5,8 @@ import './gameOverScreen.scss';
 
 class GameOverScreen {
   static draw() {
-    const contentEl = document.querySelector('.starter-template');
+    $('main').remove();
+    const contentEl = document.querySelector('#content');
     contentEl.insertAdjacentHTML('beforeend', template);
     $('#battle').remove();
   }

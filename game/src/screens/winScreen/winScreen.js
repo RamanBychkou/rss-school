@@ -7,7 +7,8 @@ import { GameState, setGameState } from '../../game';
 
 class WinScreen {
   static draw(name) {
-    const contentEl = document.querySelector('.starter-template');
+    $('main').remove()
+    const contentEl = document.querySelector('#content');
     contentEl.insertAdjacentHTML('beforeend', template);
     $('#battle').remove();
     $('.js-start-game').on('click', () => {
