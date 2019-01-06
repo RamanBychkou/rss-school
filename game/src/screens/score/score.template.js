@@ -1,14 +1,19 @@
 export default `
-<section id="score" class="scoreWrapper" >
-  <div class="row">
-    <div class="title">
-      <h1>Score</h1>
+<main>
+  <section class="scoreWrapper" id="content" >
+    <div class="row">
+      <div class="title">
+        <h1>Score</h1>
+      </div>
     </div>
-  </div>
-  <div class="row" >
-    <div class="score">
-      <ul></ul>
+    <div class="table" >
+      <table class="score">
+        <tr>
+          <th>Name</th>
+          <th>Number of monsters</th>
+        </tr>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 `;

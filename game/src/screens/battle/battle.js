@@ -10,8 +10,9 @@ import './battle.scss';
 
 class Battle {
   static draw(gameState) {
+    $('main').remove();
     const contentEl = document.querySelector('#content');
-    contentEl.innerHTML = template;
+    contentEl.insertAdjacentHTML('beforeend', template);
     $('body').removeClass('main-bg').addClass('battle-bg');
     // BattleAnimation.drawPlayer(playerImg);
     const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right', 'attack'];

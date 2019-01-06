@@ -1,31 +1,33 @@
 export default `
-<section id="battle" class="container">
-<div class="row healthyContainer">
-  <div class="col-sm-4 hpWrapper">
-    <h2 id="playerName"></h2>
-    <div class="hp" id="playerHp"><span></span></div>
-  </div>
-  <div class="col-sm-4">
-    <button type="button" class="btn js-attack">Attack monster</button>
-  </div>
-  <div class="col-sm-4 hpWrapper">
-    <h2 id="monsterName"></h2>
-    <div class="hp" id="monsterHp"><span></span></div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-4">
-    <div id="player">
-    <canvas width="400px" height="400px"></canvas>
+<main>
+  <section id="battle" class="container">
+  <div class="row healthyContainer">
+    <div class="col-sm-4 hpWrapper">
+      <h2 id="playerName"></h2>
+      <div class="hp" id="playerHp"><span></span></div>
+    </div>
+    <div class="col-sm-4">
+      <button type="button" class="btn js-attack">Attack monster</button>
+    </div>
+    <div class="col-sm-4 hpWrapper">
+      <h2 id="monsterName"></h2>
+      <div class="hp" id="monsterHp"><span></span></div>
     </div>
   </div>
-    <div class="col-sm-4 battlefield"></div>
+  <div class="row">
     <div class="col-sm-4">
-      <div id="monster">
-        <canvas width="400px" height="400px"></canvas>
+      <div id="player">
+      <canvas width="400px" height="400px"></canvas>
+      </div>
+    </div>
+      <div class="col-sm-4 battlefield"></div>
+      <div class="col-sm-4">
+        <div id="monster">
+          <canvas width="400px" height="400px"></canvas>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</section>
+  </section>
+</main>
 `;

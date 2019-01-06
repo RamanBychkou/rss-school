@@ -17,11 +17,10 @@ class Score {
   static showScore() {
     let stringContainer = '';
     for (const key in Score.score) {
-      const element = `<li><span>${key}</span>${Score.score[key]}</li>`;
+      const element = `<tr><td>${key}</td><td>${Score.score[key]}</td></tr>`;
       stringContainer += element;
-      ;
     }
-    $('.score ul').append(stringContainer);
+    $('.score').append(stringContainer);
   }
 }
 

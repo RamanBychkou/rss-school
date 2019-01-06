@@ -1,0 +1,15 @@
+.choosePlayerName {
+  width: 800px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.7);
+  margin: 50px auto;
+  padding: 30px;
+  color: #fff;
+  & h1 {
+    font-size: 2rem;
+  }
+  font-size: 1rem;
+  & form label input {
+    margin-left: 10px; 
+  }
+}

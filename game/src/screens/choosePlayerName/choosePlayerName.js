@@ -1,12 +1,13 @@
 import $ from 'jquery';
 
 import template from './choosePlayerName.template';
-
+import './choosePlayerName.scss';
 
 class ChoosePlayerName {
   static draw() {
+    $('main').remove();
     const contentEl = document.querySelector('#content');
-    contentEl.innerHTML = template;
+    contentEl.insertAdjacentHTML('beforeend', template);
   }
 
   static empty() {
