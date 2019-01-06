@@ -1,0 +1,17 @@
+.task {
+  justify-content: space-between;
+  margin: 0 auto;
+  & img {
+    max-width: 225px;
+    max-height: 135px;
+  }
+}
+.activeImg {
+  box-shadow: 0 0 0 10px rgba(0,0,0,0.9);
+}
+.thirdWheel {
+  justify-content: center;
+}
+.form {
+  margin: 20px auto;
+}

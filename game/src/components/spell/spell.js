@@ -7,10 +7,6 @@ class Spell {
     $('.cast').remove();
     const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.innerHTML = template;
-    //contentEl.insertAdjacentHTML('beforeend', template);
-    $('form > div').on('click', (e) => {
-      const idSpell = e.target.id;
-    });
     $('#demoModal').modal({});
   }
 }

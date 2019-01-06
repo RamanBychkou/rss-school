@@ -10,6 +10,8 @@ import Collection from '../../components/tasks/collectionLetters/collection.';
 import collectionTemplate from '../../components/tasks/collectionLetters/collection.template';
 import Listening from '../../components/tasks/listening/listening';
 import listeningTemplate from '../../components/tasks/listening/listening.template';
+import ThirdWheel from '../../components/tasks/thirdWheel/thirdWheel';
+import thirdWheelTemplate from '../../components/tasks/thirdWheel/thirdWheel.template';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -35,6 +37,10 @@ class Task {
       case 'listening':
         template = listeningTemplate;
         task = new Listening();
+        break;
+      case 'thirdWheel':
+        template = thirdWheelTemplate;
+        task = new ThirdWheel();
         break;
       default:
         break;

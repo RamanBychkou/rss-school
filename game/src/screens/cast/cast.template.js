@@ -22,7 +22,10 @@ export default `
     </div>
     <div class="row taskWrapper">
     <div class="col-sm-3 ">
-      <button class="btn close" id="listening" >Listening</a>
+      <button class="btn close" id="listening" >Listening</a>thirdWheel
+    </div>
+    <div class="col-sm-3 ">
+      <button class="btn close" id="thirdWheel" >Third Wheel</a>
     </div>
     </div>
   </div>
