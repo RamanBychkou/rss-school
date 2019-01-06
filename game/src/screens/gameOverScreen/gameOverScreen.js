@@ -1,14 +1,11 @@
 import $ from 'jquery';
-
-import template from './gameOverScreen.template';
-import './gameOverScreen.scss';
+import Score from '../score/score';
 
 class GameOverScreen {
   static draw() {
     $('main').remove();
-    const contentEl = document.querySelector('#content');
-    contentEl.insertAdjacentHTML('beforeend', template);
-    $('#battle').remove();
+    Score.draw();
+    GameOverScreen.empty();
   }
 
   static empty() {
