@@ -17,6 +17,8 @@ import comprassionNumberTemplate from '../../components/tasks/comprassionNumber/
 import reorderNumberTemplate from '../../components/tasks/reorderNumber/reorderNumber.template';
 import ReorderNumber from '../../components/tasks/reorderNumber/reorderNumber';
 import Geography from '../../components/tasks/geography/geography';
+import Football from '../../components/tasks/footbal/football';
+import footballTemplate from '../../components/tasks/footbal/football.template';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -57,6 +59,10 @@ class Task {
         break;
       case 'geography':
         task = new Geography();
+        break;
+      case 'football':
+        template = footballTemplate;
+        task = new Football();
         break;
       default:
         break;

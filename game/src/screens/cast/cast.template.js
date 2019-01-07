@@ -38,6 +38,9 @@ export default `
       <div class="col-sm-3 ">
         <button class="btn close" id="geography" >Geography</a>
       </div>
+      <div class="col-sm-3 ">
+        <button class="btn close" id="football" >Football</a>
+      </div>
     </div>
   </div>
 </div>
