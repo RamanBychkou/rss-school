@@ -49,6 +49,9 @@ class BattleAnimation {
 
   static playerMedical(value) {
     $('#playerHp span').css('width', `${value}%`);
+    $('#player').append(BattleAnimation.playerImg.halo);
+    $('#player img').addClass('medicalPlayer');
+    document.querySelector('.medicalPlayer').addEventListener('animationend', () => $('.medicalPlayer').remove());
   }
 
   static loadMonsterImage(name) {

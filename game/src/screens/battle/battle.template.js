@@ -16,7 +16,7 @@ export default `
   </div>
   <div class="row">
     <div class="col-sm-5">
-      <div id="player">
+      <div id="player" class="player">
       <canvas width="400px" height="400px"></canvas>
       </div>
     </div>

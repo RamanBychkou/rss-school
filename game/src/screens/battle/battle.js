@@ -21,7 +21,7 @@ class Battle {
     //const playerImg = loadImage(nameImg, 'player');
     //const monsterImg = loadImage(nameImg, 'monster');
     BattleAnimation.loadMonsterImage(nameImg);
-    BattleAnimation.loadPlayerImage(['player', 'attack']);
+    BattleAnimation.loadPlayerImage(['player', 'attack', 'halo']);
     $('#playerName').text(gameState.playerName);
     $('#monsterName').text(gameState.monsterName);
     this.gameLoop(gameState);

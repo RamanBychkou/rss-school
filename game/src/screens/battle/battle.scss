@@ -75,4 +75,23 @@ h2 {
     left: -320px;
   }
 }
+.player {
+  position: relative;
+}
+.medicalPlayer {
+  position: absolute;
+  animation-duration: 2s;
+  animation-name: medical-pl;
+  animation-timing-function: linear;
+}
+@keyframes medical-pl {
+  from {
+    left: 55px;
+    top: 140px;
+  }
+  to {
+    left: 55px;
+    top: 120px;
+  }
+}
  
