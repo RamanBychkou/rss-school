@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import '../../../../node_modules/jquery-ui/ui/widgets/sortable';
 import template from './reorderNumber.template';
-import tasks from './reorderNumber.tasks';
 import { randomNumber } from '../../../utils';
 import './reorderNumber.scss';
 
@@ -11,13 +10,13 @@ class ReorderNumber {
     $('.cast').remove();
     const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.insertAdjacentHTML('beforeend', template);
-    this.taskLogic = ReorderNumber.createTaskLogic(tasks);
+    this.taskLogic = ReorderNumber.createTaskLogic();
     // insert task in template
     ReorderNumber.showTask(this.taskLogic);
     $('#demoModal').modal({});
   }
 
-  static createTaskLogic(task) {
+  static createTaskLogic() {
     // task choose with random number, max - max id task in array tasks
     const maxQuantityArgs = 100;
     const minQantityArgs = 1;
@@ -25,7 +24,7 @@ class ReorderNumber {
     const taskArray = [];
     const answer = [];
     for (let i = 0; i < maxQuantityNumbers; i += 1) {
-      let numb = randomNumber(minQantityArgs, maxQuantityArgs);
+      const numb = randomNumber(minQantityArgs, maxQuantityArgs);
       taskArray.push(numb);
       answer.push(numb);
     }

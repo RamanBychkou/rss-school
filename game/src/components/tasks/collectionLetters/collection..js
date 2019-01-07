@@ -33,50 +33,27 @@ class Collection {
   }
 
   checkResult() {
-    let value = '';
-    const arrayAnswer = $('#targetTable').children();
-    const arrayAnswerLength = arrayAnswer.length;
-    for (let i = 0; i < arrayAnswerLength; i += 1) {
-      const idElement = arrayAnswer[i].id;
-      value += idElement;
-    }
-    if (value === this.taskLogic.result) {
+    const value = $('#sortable span').text();
+    const answer = this.taskLogic.result;
+    if (value === answer) {
       return true;
     }
     return false;
   }
 
   static showTask(task) {
-    const quantityLetters = task.task.length;
-    const fragmentAnswer = document.createDocumentFragment();
-    const fragmentLetters = document.createDocumentFragment();
-    const tr = document.createElement('tr');
-    tr.id = 'targetTable';
-    fragmentAnswer.appendChild(tr);
-    const letterWrapper = document.createElement('div');
-    letterWrapper.className = 'row lettersField';
-    fragmentLetters.appendChild(letterWrapper);
-    for (let i = 0; i < quantityLetters; i += 1) {
-      const cell = document.createElement('td');
-      fragmentAnswer.querySelector('#targetTable').appendChild(cell);
-      const outerElement = document.createElement('div');
-      outerElement.className = 'letters';
-      const innerElement = document.createElement('p');
-      innerElement.id = task.task[i];
-      fragmentLetters.querySelector('.lettersField').appendChild(outerElement);
-      fragmentLetters.querySelector('.lettersField .letters:last-child').appendChild(innerElement);
-      fragmentLetters.querySelector('.lettersField .letters:last-child p').innerHTML = task.task[i];
-    }
-    $('.answerField table').append(fragmentAnswer);
-    $('.task').append(fragmentLetters);
-    $('.letters p').draggable();
-    $('td').droppable({
-      over(event, ui) {
-        const elDrag = ui.draggable[0].id;
-        this.id = '';
-        this.id = elDrag;
-      },
+    const fragment = document.createDocumentFragment();
+    task.task.forEach((current) => {
+      const outerEl = document.createElement('li');
+      const innerEl = document.createElement('span');
+      outerEl.className = 'ui-state-default';
+      innerEl.className = 'ui-icon ui-icon-arrowthick-2-n-s';
+      innerEl.innerHTML = `${current}`;
+      fragment.appendChild(outerEl);
+      fragment.querySelector('li:last-child').appendChild(innerEl);
     });
+    $('#sortable').append(fragment);
+    $('#sortable').sortable();
   }
 
   constructor() {
