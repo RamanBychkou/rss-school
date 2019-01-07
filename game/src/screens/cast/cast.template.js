@@ -21,18 +21,23 @@ export default `
       </div>
     </div>
     <div class="row taskWrapper">
-    <div class="col-sm-3 ">
-      <button class="btn close" id="listening" >Listening</a>thirdWheel
+      <div class="col-sm-3 ">
+        <button class="btn close" id="listening" >Listening</button>
+      </div>
+      <div class="col-sm-3 ">
+        <button class="btn close" id="thirdWheel" >Third Wheel</a>
+      </div>
+      <div class="col-sm-3 ">
+        <button class="btn close" id="comprassion" >Comprassion Numbers</a>
+      </div>
+      <div class="col-sm-3 ">
+        <button class="btn close" id="reorderNumber" >Sortables Numbers</a>
+      </div>
     </div>
-    <div class="col-sm-3 ">
-      <button class="btn close" id="thirdWheel" >Third Wheel</a>
-    </div>
-    <div class="col-sm-3 ">
-      <button class="btn close" id="comprassion" >Comprassion Numbers</a>
-    </div>
-    <div class="col-sm-3 ">
-      <button class="btn close" id="reorderNumber" >Sortables Numbers</a>
-    </div>
+    <div class="row taskWrapper">
+      <div class="col-sm-3 ">
+        <button class="btn close" id="geography" >Geography</a>
+      </div>
     </div>
   </div>
 </div>
