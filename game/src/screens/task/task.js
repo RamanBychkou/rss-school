@@ -12,6 +12,8 @@ import Listening from '../../components/tasks/listening/listening';
 import listeningTemplate from '../../components/tasks/listening/listening.template';
 import ThirdWheel from '../../components/tasks/thirdWheel/thirdWheel';
 import thirdWheelTemplate from '../../components/tasks/thirdWheel/thirdWheel.template';
+import ComprassionNumber from '../../components/tasks/comprassionNumber/comprassionNumber';
+import comprassionNumberTemplate from '../../components/tasks/comprassionNumber/comprassionNumber.template';
 
 class Task {
   static getPlayerCast(taskName) {
@@ -41,6 +43,10 @@ class Task {
       case 'thirdWheel':
         template = thirdWheelTemplate;
         task = new ThirdWheel();
+        break;
+      case 'comprassion':
+        template = comprassionNumberTemplate;
+        task = new ComprassionNumber();
         break;
       default:
         break;
