@@ -15,15 +15,15 @@ export default `
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <div id="player">
       <canvas width="400px" height="400px"></canvas>
       </div>
     </div>
-      <div class="col-sm-4 battlefield"></div>
-      <div class="col-sm-4">
+      <div class="col-sm-2 battlefield"></div>
+      <div class="col-sm-5">
         <div id="monster">
-          <canvas width="400px" height="400px"></canvas>
+          <canvas width="500px" height="400px"></canvas>
         </div>
       </div>
     </div>

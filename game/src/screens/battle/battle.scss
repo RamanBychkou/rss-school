@@ -42,7 +42,7 @@ h2 {
   }
 }
 .attack-player {
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-name: attack-pl;
   animation-timing-function: linear;
 }
@@ -59,7 +59,7 @@ h2 {
 }
 
 .attack-monster {
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-name: attack-m;
   animation-timing-function: linear;
 }
@@ -72,7 +72,7 @@ h2 {
   }
   to {
     bottom: 175px;
-    left: -140px;
+    left: -320px;
   }
 }
  

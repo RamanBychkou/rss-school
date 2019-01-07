@@ -16,9 +16,12 @@ class Battle {
     contentEl.insertAdjacentHTML('beforeend', template);
     $('body').removeClass('main-bg').addClass('battle-bg');
     // BattleAnimation.drawPlayer(playerImg);
-    const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right', 'attack'];
-    const playerImg = loadImage(nameImg, 'player');
-    const monsterImg = loadImage(nameImg, 'monster');
+    //const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right', 'attack'];
+    const nameImg = ['arm-left', 'arm-right', 'body', 'head', 'legs', 'attack'];
+    //const playerImg = loadImage(nameImg, 'player');
+    //const monsterImg = loadImage(nameImg, 'monster');
+    BattleAnimation.loadMonsterImage(nameImg);
+    BattleAnimation.loadPlayerImage(['player', 'attack']);
     $('#playerName').text(gameState.playerName);
     $('#monsterName').text(gameState.monsterName);
     this.gameLoop(gameState);
