@@ -30,7 +30,7 @@ class Geography {
   }
 
   checkResult() {
-    const value = $('form > input').val();
+    const value = $('form > input').val().toLowerCase();
     if (value === this.taskLogic.result) {
       return true;
     }

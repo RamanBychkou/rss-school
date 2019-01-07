@@ -57,7 +57,7 @@ class BattleAnimation {
 
   static loadPlayerImage(nameImages) {
     let numResourcesLoaded = 0;
-    const totalResources = 1;
+    const totalResources = nameImages.length;
     const images = {};
     nameImages.forEach((element) => {
       images[element] = new Image();
