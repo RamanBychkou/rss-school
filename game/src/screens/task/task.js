@@ -14,6 +14,8 @@ import ThirdWheel from '../../components/tasks/thirdWheel/thirdWheel';
 import thirdWheelTemplate from '../../components/tasks/thirdWheel/thirdWheel.template';
 import ComprassionNumber from '../../components/tasks/comprassionNumber/comprassionNumber';
 import comprassionNumberTemplate from '../../components/tasks/comprassionNumber/comprassionNumber.template';
+import reorderNumberTemplate from '../../components/tasks/reorderNumber/reorderNumber.template';
+import ReorderNumber from '../../components/tasks/reorderNumber/reorderNumber'
 
 class Task {
   static getPlayerCast(taskName) {
@@ -47,6 +49,10 @@ class Task {
       case 'comprassion':
         template = comprassionNumberTemplate;
         task = new ComprassionNumber();
+        break;
+      case 'reorderNumber':
+        template = reorderNumberTemplate;
+        task = new ReorderNumber();
         break;
       default:
         break;

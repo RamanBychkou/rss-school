@@ -2,6 +2,7 @@ import $ from 'jquery';
 import template from './comprassionNumber.template';
 import { randomNumber } from '../../../utils';
 import './comprassionNumber.scss';
+import '../../../../node_modules/jquery-ui/ui/effect';
 
 class ComprassionNumber {
   draw() {
@@ -15,7 +16,7 @@ class ComprassionNumber {
       e.preventDefault();
       that.taskLogic.answer = Boolean(e.target.id);
       $('.activeBtn').removeClass('activeBtn');
-      $(`#${e.target.id}`).addClass('activeBtn');
+      $(`#${e.target.id}`).addClass('activeBtn')
     });
     $('#demoModal').modal({});
   }

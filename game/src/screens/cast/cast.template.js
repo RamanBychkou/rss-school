@@ -30,6 +30,9 @@ export default `
     <div class="col-sm-3 ">
       <button class="btn close" id="comprassion" >Comprassion Numbers</a>
     </div>
+    <div class="col-sm-3 ">
+      <button class="btn close" id="reorderNumber" >Sortable Numbers</a>
+    </div>
     </div>
   </div>
 </div>
