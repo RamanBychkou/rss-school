@@ -30,4 +30,5 @@ export default `
   </div>
   </section>
 </main>
+<div class="preloader row"><img src="./src/screens/battle/img/monster/1/head.png"></div>
 `;

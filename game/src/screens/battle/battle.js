@@ -4,7 +4,7 @@ import template from './battle.template';
 import Spell from '../../components/spell/spell';
 import Cast from '../cast/cast';
 import Task from '../task/task';
-import { pause, loadImage } from '../../utils';
+import { pause } from '../../utils';
 import BattleAnimation from './battle.annimation';
 
 import './battle.scss';
@@ -15,13 +15,11 @@ class Battle {
     const contentEl = document.querySelector('#content');
     contentEl.insertAdjacentHTML('beforeend', template);
     $('body').removeClass('main-bg').addClass('battle-bg');
-    // BattleAnimation.drawPlayer(playerImg);
-    //const nameImg = ['arm-left', 'arm-right', 'body', 'gun', 'head', 'leg-left', 'leg-right', 'attack'];
-    const nameImg = ['arm-left', 'arm-right', 'body', 'head', 'legs', 'attack'];
-    //const playerImg = loadImage(nameImg, 'player');
-    //const monsterImg = loadImage(nameImg, 'monster');
-    BattleAnimation.loadMonsterImage(nameImg);
-    BattleAnimation.loadPlayerImage(['player', 'attack', 'halo']);
+    const nameImgMonster = ['arm-left', 'arm-right', 'body', 'head', 'legs', 'attack'];
+    const nameImgPlayer = ['player', 'attack', 'halo'];
+    document.querySelector('.preloader img').addEventListener('animationend', () => $('.preloader').remove());
+    BattleAnimation.loadMonsterImage(nameImgMonster);
+    BattleAnimation.loadPlayerImage(nameImgPlayer);
     $('#playerName').text(gameState.playerName);
     $('#monsterName').text(gameState.monsterName);
     this.gameLoop(gameState);
@@ -45,7 +43,7 @@ class Battle {
     this.subtractHealthy = 20;
   }
 
-  static gameLoop(gameState) {
+  static gameLoop() {
     $('.js-spell').on('click', () => {
       Spell.draw();
       $('.js-attack').on('click', (event) => {
@@ -55,7 +53,7 @@ class Battle {
         } else {
           Battle.idSpell = event.target.id;
         }
-        const chosenCast = Cast.getPlayerCast();
+        Cast.getPlayerCast();
         // выбор таска
         $('.taskWrapper').on('click', async (e) => {
           $('#demoModal').modal('hide');
