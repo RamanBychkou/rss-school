@@ -6,7 +6,7 @@ export default `
           <a class="nav-link home" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Landing</a>
+          <a class="nav-link landing" href="#">Landing</a>
         </li>
         <li class="nav-item js-call-modal">
         <button type="button" class="btn btn-primary js-start-game">

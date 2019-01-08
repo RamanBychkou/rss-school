@@ -14,6 +14,7 @@ import ChoosePlayerName from './screens/choosePlayerName/choosePlayerName';
 import Battle from './screens/battle/battle';
 import Score from './screens/score/score';
 import Monster from './components/monster/monster';
+import Landing from './screens/landing/landing';
 
 const setPlayerName = async (gameState) => {
   const playerName = await ChoosePlayerName.getNewPlayerName();
@@ -57,6 +58,10 @@ const startApp = () => {
     e.preventDefault();
     $('main').remove();
     Header.draw();
+  });
+  $('.landing').on('click', (e) => {
+    e.preventDefault();
+    Landing.draw();
   });
   $('.js-start-game').on('click', async () => {
     startGame();
