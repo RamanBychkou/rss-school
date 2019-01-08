@@ -10,10 +10,6 @@ class Score {
     Score.showScore();
   }
 
-  static empty() {
-    $('#winScreen').empty();
-  }
-
   static showScore() {
     let stringContainer = '';
     for (const key in Score.score) {

@@ -53,6 +53,11 @@ const startApp = () => {
   Header.draw();
   ModalDialog.draw();
   Score.score = {};
+  $('.home').on('click', (e) => {
+    e.preventDefault();
+    $('main').remove();
+    Header.draw();
+  });
   $('.js-start-game').on('click', async () => {
     startGame();
   });
