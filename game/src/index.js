@@ -5,7 +5,7 @@ import $ from 'jquery';
 
 import { GameState, setGameState } from './game';
 
-import Header from './components/header/header';
+import Home from './components/home/home';
 import Nav from './components/navigation/nav';
 
 import './index.scss';
@@ -51,13 +51,13 @@ const startApp = () => {
   window.$ = $; // for debug
 
   Nav.draw();
-  Header.draw();
+  Home.draw();
   ModalDialog.draw();
   Score.score = {};
   $('.home').on('click', (e) => {
     e.preventDefault();
     $('main').remove();
-    Header.draw();
+    Home.draw();
   });
   $('.landing').on('click', (e) => {
     e.preventDefault();

@@ -4,4 +4,11 @@
 }
 figure {
   text-align: center;
+  & {
+    figcaption {
+      font-size: 1.3rem;
+      border: 1px solid black;
+      margin-bottom: 10px;
+    }
+  }
 }

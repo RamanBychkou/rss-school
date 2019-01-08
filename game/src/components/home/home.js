@@ -1,11 +1,11 @@
-import template from './homeScreen.template';
-import './homeScreen.scss';
+import template from './home.template';
+import './home.scss';
 
-class Header {
+class Home {
   static draw() {
     const contentEl = document.querySelector('#content');
     contentEl.insertAdjacentHTML('beforeend', template);
   }
 }
 
-export default Header;
+export default Home;
