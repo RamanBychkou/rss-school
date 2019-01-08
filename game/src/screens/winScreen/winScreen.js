@@ -4,7 +4,7 @@ import template from './winScreen.template';
 import './winScreen.scss';
 import Battle from '../battle/battle';
 import Monster from '../../components/monster/monster';
-import { GameState, setGameState } from '../../game';
+import { GameState } from '../../game';
 import Score from '../score/score';
 
 class WinScreen {

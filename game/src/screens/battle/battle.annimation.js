@@ -19,17 +19,7 @@ class BattleAnimation {
   static drawPlayer(images) {
     const whereInsert = document.querySelector('#player canvas');
     const ctx = whereInsert.getContext('2d');
-    ctx.drawImage(images['player'], 0, 150);
-    /*
-    ctx.drawImage(images['leg-right'], 160, 270);
-    ctx.drawImage(images['leg-left'], 120, 270);
-    ctx.drawImage(images['arm-right'], 180, 140);
-    ctx.drawImage(images.body, 90, 120);
-    ctx.drawImage(images.gun, 60, 200);
-    ctx.drawImage(images['arm-left'], 80, 150);
-    ctx.drawImage(images.head, 80, 0);
-    // ctx.drawImage(images['arm-left'], 130, 180);
-    */
+    ctx.drawImage(images.player, 0, 150);
   }
 
   static playerAttackAnimation(value) {

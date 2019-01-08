@@ -1,4 +1,3 @@
-// import { stat } from 'fs';
 import WinScreen from './screens/winScreen/winScreen';
 import GameOverScreen from './screens/gameOverScreen/gameOverScreen';
 import Score from './screens/score/score';
