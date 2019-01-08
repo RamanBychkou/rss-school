@@ -89,7 +89,7 @@ export default `
 </section>
 <section class="row about">
   <div class="col-sm-4">
-    <img src="" alt="author: Roman Bychkov">
+    <img src="./src/screens/landing/landing/me.jpeg" alt="author: Roman Bychkov">
   </div>
   <div class="col-sm-4">
     <h4>About author</h4>
