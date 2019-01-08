@@ -32,13 +32,11 @@ export class GameState {
       } else {
         currentScore[this.playerName] = 1;
       }
-      console.log(Score.score);
       WinScreen.draw(this.playerName);
     } else if (this.playerHealthy <= 0) {
       if (currentScore.hasOwnProperty(this.playerName) === false) {
         currentScore[this.playerName] = 0;
       }
-      console.log(Score.score);
       GameOverScreen.draw();
     }
   }
