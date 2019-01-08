@@ -3,7 +3,6 @@ import template from './football.template';
 import { randomNumber } from '../../../utils';
 import './football.scss';
 import tasks from './football.tasks';
-import { inherits } from 'util';
 
 class Football {
   async draw() {
@@ -49,9 +48,7 @@ class Football {
       image.onload = function draw() {
         numResourcesLoaded += 1;
         if (numResourcesLoaded === totalResources) {
-          imagesArray.sort(function compareRandom(a, b) {
-            return Math.random() - 0.5;
-          });
+          imagesArray.sort(() => Math.random() - 0.5);
           Football.showTask(imagesArray);
         }
       };

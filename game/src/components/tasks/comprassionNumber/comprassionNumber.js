@@ -10,13 +10,13 @@ class ComprassionNumber {
     const contentEl = document.querySelector('#demoModal .modal-content');
     contentEl.insertAdjacentHTML('beforeend', template);
     this.taskLogic = ComprassionNumber.createTaskLogic();
-    let that = this;
+    const that = this;
     document.querySelector('.taskWrapper .task').insertAdjacentHTML('afterbegin', this.taskLogic.task);
-    $('.btnWrapper').on('click', function setAnswer(e) {
+    $('.btnWrapper').on('click', (e) => {
       e.preventDefault();
       that.taskLogic.answer = Boolean(e.target.id);
       $('.activeBtn').removeClass('activeBtn');
-      $(`#${e.target.id}`).addClass('activeBtn')
+      $(`#${e.target.id}`).addClass('activeBtn');
     });
     $('#demoModal').modal({});
   }

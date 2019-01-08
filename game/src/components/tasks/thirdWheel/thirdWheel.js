@@ -2,7 +2,6 @@ import $ from 'jquery';
 import template from './thirdWheel.template';
 import { randomNumber } from '../../../utils';
 import './thirdWheel.scss';
-import { inherits } from 'util';
 
 class ThirdWheel {
   async draw() {
