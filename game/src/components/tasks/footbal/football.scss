@@ -1,0 +1,28 @@
+.task {
+  justify-content: space-between;
+  margin: 0 auto;
+  & img {
+    max-width: 225px;
+    max-height: 135px;
+  }
+}
+.football .activeImg {
+  box-shadow: 0 0 0 10px red;
+}
+.football {
+  justify-content: center;
+  & .task {
+    padding: 15px;
+    background: rgba(0,0,0,0.7);
+    & img {
+      max-width: 200px;
+      max-height: 200px;
+      &:hover {
+        transform: scale(1.1)
+      }
+    }
+  }
+}
+.form {
+  margin: 20px auto;
+}

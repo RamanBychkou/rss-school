@@ -1,0 +1,20 @@
+.scoreWrapper {
+  width: 400px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #25ff2266;
+  & .title {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  & .score {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    & td, & tr {
+      border: none;
+      border-bottom: 1px solid #fff;
+    }
+  }
+}
