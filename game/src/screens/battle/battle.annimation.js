@@ -9,11 +9,7 @@ class BattleAnimation {
     ctx.drawImage(images['arm-right'], 15, 90);
     ctx.drawImage(images.body, 200, 75);
     ctx.drawImage(images['arm-left'], 345, 90);
-
     ctx.drawImage(images.head, 250, 70);
-    // ctx.drawImage(images['leg-right'], 115, 70);
-    // ctx.drawImage(images.gun, 32, 230);
-    //
   }
 
   static drawPlayer(images) {
@@ -26,14 +22,20 @@ class BattleAnimation {
     $('.battlefield').append(BattleAnimation.monsterImg.attack);
     $('#playerHp span').css('width', `${value}%`);
     $('.battlefield img').addClass('attack-monster');
-    document.querySelector('.attack-monster').addEventListener('animationend', () => $('.attack-monster').remove());
+    document.querySelector('.attack-monster').addEventListener('animationend', () => {
+      $('.attack-monster').remove();
+      document.querySelector('#attack-monster').play();
+    });
   }
 
   static monsterAttackAnimation(value) {
     $('.battlefield').append(BattleAnimation.playerImg.attack);
 
     $('.battlefield img').addClass('attack-player');
-    document.querySelector('.attack-player').addEventListener('animationend', () => $('.attack-player').remove());
+    document.querySelector('.attack-player').addEventListener('animationend', () => {
+      $('.attack-player').remove();
+      document.querySelector('#attack-player').play();
+    });
     $('#monsterHp span').css('width', `${value}%`);
   }
 
@@ -41,7 +43,10 @@ class BattleAnimation {
     $('#playerHp span').css('width', `${value}%`);
     $('#player').append(BattleAnimation.playerImg.halo);
     $('#player img').addClass('medicalPlayer');
-    document.querySelector('.medicalPlayer').addEventListener('animationend', () => $('.medicalPlayer').remove());
+    document.querySelector('#medical').play();
+    document.querySelector('.medicalPlayer').addEventListener('animationend', () => {
+      $('.medicalPlayer').remove();
+    });
   }
 
   static loadMonsterImage(name) {
@@ -62,6 +67,16 @@ class BattleAnimation {
           BattleAnimation.drawPlayer(images);
         }
       };
+    });
+  }
+
+  static loadBattleAudio() {
+    const name = ['attack-player', 'attack-monster', 'medical'];
+    name.forEach((current) => {
+      const audioElement = new Audio(`src/screens/battle/audio/${current}.mp3`);
+      audioElement.id = current;
+      audioElement.preload = true;
+      $('main').append(audioElement);
     });
   }
 }

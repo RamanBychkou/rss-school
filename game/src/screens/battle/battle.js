@@ -18,6 +18,7 @@ class Battle {
     const nameImgMonster = ['arm-left', 'arm-right', 'body', 'head', 'legs', 'attack'];
     const nameImgPlayer = ['player', 'attack', 'halo'];
     document.querySelector('.preloader img').addEventListener('animationend', () => $('.preloader').remove());
+    BattleAnimation.loadBattleAudio();
     BattleAnimation.loadMonsterImage(nameImgMonster);
     BattleAnimation.loadPlayerImage(nameImgPlayer);
     $('#playerName').text(gameState.playerName);
