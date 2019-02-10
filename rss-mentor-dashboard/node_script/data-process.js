@@ -53,13 +53,14 @@ pairsFromFile.forEach((current, index) => {
 
 // parse Mentore Score
 const mentorScoreFromFile = xlsx.parse(`${__dirname}/data/Mentor score.xlsx`);
-const dataScore = mentorScoreFromFile[0].data;
+let dataScore = mentorScoreFromFile[0].data;
 const mentorsGithubScore = 1;
 const studentGithubScore = 2;
 const taskNameScore = 3;
 const mark = 5;
 const tasksMarks = {};
-
+dataScore = dataScore.slice(1);
+console.log(dataScore);
 dataScore.forEach((current) => {
   let mentor = current[mentorsGithubScore];
   mentor = mentor.toLowerCase();
@@ -67,7 +68,13 @@ dataScore.forEach((current) => {
   student = student.toLowerCase();
   const taskName = current[taskNameScore];
   if (tasksMarks[mentor] !== undefined) {
-    tasksMarks.students[student] = {student};
+    if (tasksMarks[mentor].students === undefined) {
+      tasksMarks[mentor].students = {};
+      tasksMarks[mentor].students[student] = student;
+    } else {
+      tasksMarks[mentor].students[student] = student;
+    }
+    
     if (tasksMarks[mentor][taskName] !== undefined) {
       tasksMarks[mentor][taskName][student] = current[mark];
     } else {
@@ -78,7 +85,12 @@ dataScore.forEach((current) => {
     tasksMarks[mentor] = {};
     tasksMarks[mentor][taskName] = {};
     tasksMarks[mentor][taskName][student] = current[mark];
-    tasksMarks[mentor].students[student] = { student };
+    if (tasksMarks[mentor].students === undefined) {
+      tasksMarks[mentor].students = {};
+      tasksMarks[mentor].students[student] = student;
+    } else {
+      tasksMarks[mentor].students[student] = student;
+    }
   }
 });
 
