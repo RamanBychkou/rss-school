@@ -5,5 +5,5 @@ import Common from './components/commonTemplate';
 let data = require('./data.json');
 
 //data = JSON.parse(data);
-console.log(data.taskInfo);
+console.log(data);
 ReactDOM.render(<Common />, document.querySelector('#root'));

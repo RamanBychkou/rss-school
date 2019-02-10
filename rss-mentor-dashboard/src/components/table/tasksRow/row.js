@@ -5,16 +5,33 @@ const data = require('../../../data.json');
 class TasksRow extends Component {
   constructor(props) {
     super(props);
-    this.state = { tasks: data.taskInfo };
+    this.state = { 
+      tasks: data.taskInfo,
+      mentor: 'Aliaksandr Zayats',
+     };
   }
 
   render() {
-    return (
+    const tasks = this.state.tasks;
+    const taskRow = tasks.map((current, index) => (
       <tr>
         <td>
-          {this.state.tasks[7].name}
+        {current.name}
         </td>
       </tr>
+      
+    ));
+
+    const firstRow = (data) => {
+      const menorData = data[this.state[mentor]];
+    }
+
+    return (
+      <tbody id="table">
+        
+        { taskRow }
+      </tbody>
+        
     );
   }
 }

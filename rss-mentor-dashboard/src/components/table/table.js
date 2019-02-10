@@ -7,9 +7,7 @@ class Table extends Component {
     return (
       <section className="table">
         <table>
-          <tbody id="table">
-            <TasksRow />
-          </tbody>
+          <TasksRow />
         </table>
       </section>
     );
