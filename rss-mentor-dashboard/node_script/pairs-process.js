@@ -1,45 +1,55 @@
+
 const xlsx = require('node-xlsx');
-const tasks = require('./tasks-process');
-const tasksMarks = require('./score-process');
+let tasks = require('./tasks-process');
 
-let dataSchool = {};
-dataSchool.taskInfo = tasks;
+module.exports = function parseScore() {
+  tasks = tasks();
 
-// parse Mentor Stundents Pair
-const mentorStudentsPairs = xlsx.parse(`${__dirname}/data/Mentor-students pairs.xlsx`);
-const pairsFromFile = mentorStudentsPairs[0].data;
-let mentorsFromFile = mentorStudentsPairs[1].data
-let mentorName = 0;
-let mentorSurname = 1;
-let city = 2;
-let count = 3;
-let mentorGithub = 4
-let studentgitgub = 2;
-mentorsFromFile = mentorsFromFile.slice(1, mentorsFromFile.length -2);
-let a;
-// merge nameMentors data
-mentorsFromFile.forEach((current) => {
-  let mentor = current[mentorGithub];
-  if(mentor !== undefined) {
-    mentor = mentor.toLowerCase()
-    
-    dataSchool[`${current[mentorName]} ${current[mentorSurname]}`] = {};
-    let tempMentor = dataSchool[`${current[mentorName]} ${current[mentorSurname]}`];
+  // parse Mentor Stundents Pair
+  const mentorStudentsPairs = xlsx.parse(`${__dirname}/data/Mentor-students pairs.xlsx`);
+  const pairsFromFile = mentorStudentsPairs[0].data;
+  const mentorsFromFile = mentorStudentsPairs[1].data;
+
+  // parse mentors data
+  const mentorName = 0;
+  const mentorSurname = 1;
+  const mentorCity = 2;
+  const studentsCount = 3;
+  const mentorGithub = 4;
+
+  let mentorsData = mentorsFromFile.map((current) => {
+    const tempMentor = {};
     tempMentor.name = `${current[mentorName]} ${current[mentorSurname]}`;
-    tempMentor.github = mentor;
-    tempMentor.city = current[city];
-    tempMentor.count = current[count];
-    a = mentor;
-    //console.log('vv  ', mentor)
-    //console.log('aa  ', tasksMarks[mentor]);
-    if (tasksMarks[mentor] !== undefined) {
-      tempMentor.tasks = tasksMarks[mentor];
+    tempMentor.mentorGithub = current[mentorGithub];
+    tempMentor.studentsCount = current[studentsCount];
+    tempMentor.city = current[mentorCity];
+
+    return tempMentor;
+  });
+
+  // parse students group
+  const studentGithub = 1;
+  const pairs = {};
+  pairsFromFile.forEach((current) => {
+    const mentor = current[mentorName];
+    const student = current[studentGithub];
+    if (pairs[mentor] === undefined) {
+      pairs[mentor] = {};
+      pairs[mentor][student] = {
+        github: student,
+      };
+      // console.log(current )
     } else {
-      tempMentor.tasks = null;
+      pairs[mentor][student] = {
+        github: student,
+      };
     }
-  }
-});
-console.log('vv  ', a)
-    console.log('aa  ', tasksMarks.a);
-//console.log('gen  ', dataSchool);
-module.exports.dataSchool = dataSchool;
+  });
+  mentorsData = mentorsData.map((current, index) => {
+    mentorsData[index].students = pairs[current.name];
+    mentorsData[index].tasks = tasks;
+    return current;
+  });
+  mentorsData.shift();
+  return mentorsData;
+};
