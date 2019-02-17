@@ -17,7 +17,7 @@ class TasksRow extends Component {
     const students = this.state.students;
     const studentsLogin = Object.keys(students);
     const tasksRow = [];
-   
+
 
     const studentsCell = [];
     for (const key in this.state.students) {
@@ -29,14 +29,30 @@ class TasksRow extends Component {
 
     tasks.forEach((current) => {
       const tempRow = [];
+      let nameClass;
+      switch (current.status) {
+        case 'Checked':
+          nameClass = 'checked';
+          break;
+        case 'Checking':
+          nameClass = 'checking';
+          break;
+        case 'In Progress':
+          nameClass = 'inProgress';
+          break;
+        default:
+          nameClass = 'toDo';
+          break;
+      }
       studentsLogin.forEach((currentElem) => {
         if (students[currentElem][current.name] !== undefined) {
+          console.log(students[currentElem][current.name].mark);
           tempRow.push((
-            <td>{students[currentElem][current.name]}</td>
+            <td className={nameClass}>{students[currentElem][current.name].mark}</td>
           ));
         } else {
           tempRow.push((
-            <td>0</td>
+            <td className={nameClass}>0</td>
           ));
         }
       });
@@ -48,7 +64,7 @@ class TasksRow extends Component {
       );
       tasksRow.push(element);
     });
-    
+
 
     return (
       <tbody id="table">
@@ -56,7 +72,7 @@ class TasksRow extends Component {
           <th>{this.state.mentor}</th>
           {studentsCell}
         </tr>
-        
+        {tasksRow}
       </tbody>
 
     );
