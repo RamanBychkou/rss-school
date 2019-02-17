@@ -1,5 +1,37 @@
 const xlsx = require('node-xlsx');
+const deleteSlash = require('./utils');
+let tasksFromFile = require('./tasks-process');
 
+tasksFromFile = tasksFromFile();
+const data = tasksFromFile.map(current => current.name);
+const checkTaskName = (nameTask) => {
+  if (nameTask === 'Presentation') {
+    return nameTask;
+  }
+  for (let i = 0; i < data.length; i += 1) {
+    const taskNameArray = nameTask.split(' ');
+    data[i] = data[i].replace(' -', '');
+    console.log('taskNameArray ', taskNameArray);
+    console.log('score ', nameTask);
+    let check;
+    for (let t = 0; t < taskNameArray.length; t += 1) {
+      console.log('nameTask.includes ', data[i].includes(taskNameArray[t]));
+      if (data[i].includes(taskNameArray[t]) === true) {
+        check = true;
+        console.log(t);
+      } else {
+        check = false;
+        break;
+      }
+    }
+    if (check === true) {
+      console.log('check ', check);
+      console.log('task ', data[i]);
+      return data[i];
+    }
+  }
+  return 'error';
+};
 
 module.exports = function parseScore() {
   // parse Mentore Score
@@ -16,11 +48,11 @@ module.exports = function parseScore() {
   dataScore.forEach((current) => {
     const studentGithubLink = current[studentGithub];
     const studentLogin = studentGithubLink.replace('https://github.com/', '').toLowerCase();
-    const task = current[taskName];
+    const task = checkTaskName(current[taskName]);
     // console.log(task)
     const taskMark = current[mark];
     const pullLink = current[studentPull];
-    const mentorCheck = current[mentorsGithub];
+    const mentorCheck = deleteSlash(current[mentorsGithub]);
     if (tasksMarks[studentLogin] !== undefined) {
       tasksMarks[studentLogin][task] = {};
       tasksMarks[studentLogin][task].nameTask = task.trim();

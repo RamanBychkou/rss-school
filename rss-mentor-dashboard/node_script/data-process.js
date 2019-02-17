@@ -1,18 +1,25 @@
 const fs = require('fs');
 const getData = require('./mergeData');
 
-let data = getData();
+const data = getData();
 
-//const dataSchool = {};
-//// parse Tasks
-//let tasksFromFile = xlsx.parse(`${__dirname}/data/Tasks.xlsx`);
-//tasksFromFile = tasksFromFile[0].data;
+const dataFile = JSON.stringify(data);
+const filepath = './src/data.json';
+fs.appendFile(filepath, dataFile, (err) => {
+  if (err) throw err;
+  console.log('The "data to append" was appended to file!');
+});
+
+// const dataSchool = {};
+// // parse Tasks
+// let tasksFromFile = xlsx.parse(`${__dirname}/data/Tasks.xlsx`);
+// tasksFromFile = tasksFromFile[0].data;
 //
-//const tasks = [];
-//const taskName = 0;
-//const taskLink = 1;
-//const taskStatus = 2;
-//tasksFromFile.forEach((current) => {
+// const tasks = [];
+// const taskName = 0;
+// const taskLink = 1;
+// const taskStatus = 2;
+// tasksFromFile.forEach((current) => {
 //  let tempTask = {};
 //  tempTask = {
 //    name: current[taskName].trim(),
@@ -20,24 +27,24 @@ let data = getData();
 //    status: current[taskStatus],
 //  };
 //  tasks.push(tempTask);
-//});
-//tasks.shift();
+// });
+// tasks.shift();
 //
 //
-//dataSchool.taskInfo = tasks;
-//// parse Mentor Stundents Pair
-//const mentorStudentsPairs = xlsx.parse(`${__dirname}/data/Mentor-students pairs.xlsx`);
-//const pairsFromFile = mentorStudentsPairs[0].data;
-//let mentorsFromFile = mentorStudentsPairs[1].data;
-//const mentorName = 0;
-//const mentorSurname = 1;
-//const city = 2;
-//const count = 3;
-//const mentorGithub = 4;
-//const studentGitgub = 1;
-//mentorsFromFile = mentorsFromFile.slice(0, mentorsFromFile.length - 2);
-//const pairs = {};
-//pairsFromFile.forEach((current, index) => {
+// dataSchool.taskInfo = tasks;
+// // parse Mentor Stundents Pair
+// const mentorStudentsPairs = xlsx.parse(`${__dirname}/data/Mentor-students pairs.xlsx`);
+// const pairsFromFile = mentorStudentsPairs[0].data;
+// let mentorsFromFile = mentorStudentsPairs[1].data;
+// const mentorName = 0;
+// const mentorSurname = 1;
+// const city = 2;
+// const count = 3;
+// const mentorGithub = 4;
+// const studentGitgub = 1;
+// mentorsFromFile = mentorsFromFile.slice(0, mentorsFromFile.length - 2);
+// const pairs = {};
+// pairsFromFile.forEach((current, index) => {
 //  const mentor = current[mentorName];
 //  const student = current[studentGitgub];
 //  if (pairs[mentor] === undefined) {
@@ -51,18 +58,18 @@ let data = getData();
 //      github: student,
 //    };
 //  }
-//});
+// });
 //
-//// parse Mentore Score
-//const mentorScoreFromFile = xlsx.parse(`${__dirname}/data/Mentor score.xlsx`);
-//let dataScore = mentorScoreFromFile[0].data;
-//const mentorsGithubScore = 1;
-//const studentGithubScore = 2;
-//const taskNameScore = 3;
-//const mark = 5;
-//const tasksMarks = {};
-//dataScore = dataScore.slice(1);
-//dataScore.forEach((current) => {
+// // parse Mentore Score
+// const mentorScoreFromFile = xlsx.parse(`${__dirname}/data/Mentor score.xlsx`);
+// let dataScore = mentorScoreFromFile[0].data;
+// const mentorsGithubScore = 1;
+// const studentGithubScore = 2;
+// const taskNameScore = 3;
+// const mark = 5;
+// const tasksMarks = {};
+// dataScore = dataScore.slice(1);
+// dataScore.forEach((current) => {
 //  let mentor = current[mentorsGithubScore];
 //  mentor = mentor.toLowerCase();
 //  let student = current[studentGithubScore];
@@ -75,7 +82,7 @@ let data = getData();
 //    } else {
 //      tasksMarks[mentor].students[student] = student;
 //    }
-//    
+//
 //    if (tasksMarks[mentor][taskName] !== undefined) {
 //      tasksMarks[mentor][taskName][student] = current[mark];
 //    } else {
@@ -93,10 +100,10 @@ let data = getData();
 //      tasksMarks[mentor].students[student] = student;
 //    }
 //  }
-//});
+// });
 //
-//// merge nameMentors data
-//mentorsFromFile.forEach((current) => {
+// // merge nameMentors data
+// mentorsFromFile.forEach((current) => {
 //  let mentor = current[mentorGithub];
 //  if (mentor !== undefined) {
 //    mentor = mentor.toLowerCase();
@@ -114,12 +121,12 @@ let data = getData();
 //      tempMentor.tasks = null;
 //    }
 //  }
-//});
+// });
 //
-//const dataFile = JSON.stringify(dataSchool);
-//const filepath = './src/data.json';
-//fs.appendFile(filepath, dataFile, (err) => {
+// const dataFile = JSON.stringify(dataSchool);
+// const filepath = './src/data.json';
+// fs.appendFile(filepath, dataFile, (err) => {
 //  if (err) throw err;
 //  console.log('The "data to append" was appended to file!');
-//});
+// });
 //

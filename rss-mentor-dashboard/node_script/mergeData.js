@@ -21,42 +21,55 @@ module.exports = function mergeDara() {
     const tempGrup = current.students;
     for (const key in tempGrup) {
       // console.log('key ',key);
-
-      
-      if(dataScore[key] !== undefined) {
+      if (dataScore[key] !== undefined) {
         dataScore[key].mentor = getUnique(dataScore[key].mentor);
         tempGrup[key] = dataScore[key];
-        
-        if(tempGrup[key].mentor[0] === current.mentorGithub ) {
-          //console.log('true')
+
+        if (tempGrup[key].mentor[0] === current.mentorGithub) {
+          // console.log('true')
         } else {
-          console.log('pairs ',tempGrup[key].mentor[0]);
-        console.log('mento ',current.mentorGithub);
-          if(exeption[current.mentorGithub] !== undefined) {
-            exeption[current.mentorGithub].students[tempGrup[key]['githubLogin']] = tempGrup[key];
+          // console.log('pairs ',tempGrup[key].mentor[0]);
+        // console.log('mento ',current.mentorGithub);
+          if (exeption[current.mentorGithub] !== undefined) {
+            exeption[current.mentorGithub][tempGrup[key].githubLogin] = tempGrup[key];
             delete tempGrup[key];
           } else {
             exeption[current.mentorGithub] = {};
-            exeption[current.mentorGithub].students = {};
-            exeption[current.mentorGithub].students[tempGrup[key]['githubLogin']] = tempGrup[key]
+            exeption[current.mentorGithub][tempGrup[key].githubLogin] = tempGrup[key];
             delete tempGrup[key];
           }
         }
       }
-      //console.log('dataScore[key] ',dataScore[key]);
+      // console.log('dataScore[key] ',dataScore[key]);
     }
     return current;
   });
   // set exeptions
-  let githubExeptions = Object.keys(exeption);
-  //console.log(githubExeptions)
-  data.forEach(current => {
-    if(githubExeptions.includes(current.mentorGithub) === true) {
-      //console.log(true)
+  const githubExeptions = Object.keys(exeption);
+  // console.log(githubExeptions)
+  let dataSchool = {};
+  data.forEach((current) => {
+    // console.log('githubExeptions', githubExeptions)
+    // console.log('githubExeptions', current.mentorGithub, githubExeptions.includes(current.mentorGithub))
+    if (githubExeptions.includes(current.mentorGithub) === true) {
+      // console.log('ccc', exeption[current.mentorGithub])
+      if (exeption[current.mentorGithub] !== undefined) {
+        // console.log('bbbb')
+        const missStudents = Object.keys(exeption[current.mentorGithub]);
+        // console.log('aaa', missStudents);
+        missStudents.forEach((student) => {
+          current.students[student] = exeption[current.mentorGithub][student];
+          //console.log('student', current);
+        });
+        
+      }
+      dataSchool[current.name] = current;
     } else {
-      //console.log(false)
+      //console.log(false);
+      dataSchool[current.name] = current;
     }
   });
-  //console.log('tempGrup[key ',exeption);
-  //console.log(data[0].students);
+  // console.log('tempGrup[key ',exeption);
+  // console.log(data);
+  return dataSchool;
 };

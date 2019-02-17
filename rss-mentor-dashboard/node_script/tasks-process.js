@@ -11,8 +11,7 @@ module.exports = function parseTasks() {
   const taskLink = 1;
   const taskStatus = 2;
   tasksFromFile.forEach((current) => {
-    const tempTask = {};
-    tempTask[current[taskName]] = {
+    const tempTask = {
       name: current[taskName].trim(),
       link: current[taskLink],
       status: current[taskStatus],

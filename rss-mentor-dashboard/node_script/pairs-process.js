@@ -1,6 +1,7 @@
-
 const xlsx = require('node-xlsx');
 let tasks = require('./tasks-process');
+const deleteSlash = require('./utils');
+
 
 module.exports = function parseScore() {
   tasks = tasks();
@@ -20,7 +21,8 @@ module.exports = function parseScore() {
   let mentorsData = mentorsFromFile.map((current) => {
     const tempMentor = {};
     tempMentor.name = `${current[mentorName]} ${current[mentorSurname]}`;
-    tempMentor.mentorGithub = current[mentorGithub];
+    tempMentor.mentorGithub = deleteSlash(current[mentorGithub]);
+    // console.log(tempMentor.mentorGithub)
     tempMentor.studentsCount = current[studentsCount];
     tempMentor.city = current[mentorCity];
 
@@ -36,12 +38,12 @@ module.exports = function parseScore() {
     if (pairs[mentor] === undefined) {
       pairs[mentor] = {};
       pairs[mentor][student] = {
-        github: student,
+        githubLogin: student,
       };
       // console.log(current )
     } else {
       pairs[mentor][student] = {
-        github: student,
+        githubLogin: student,
       };
     }
   });
