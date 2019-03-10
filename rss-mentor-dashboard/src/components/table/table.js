@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
+import Select from '../../../node_modules/react-select/dist/react-select.esm';
 import TasksRow from '../../containers/tasksRow/row';
 import './table.css';
+
+
+const data = require('../../data.json');
+
+const mentorsNames = Object.keys(data).map(current => ({ value: current, label: current }));
 
 class Table extends Component {
   constructor(props) {
     super(props);
-    this.state = { mentor: 'Aleh Lipski' };
+    this.state = { mentor: undefined };
   }
 
-  setMentor(e) {
-    e.preventDefault()
-    debugger;
-    this.setState({ mentor: document.querySelector('form input').value });
-  }
-
-  componentWillUnmount() {
-    alert(this.state);
+  setMentor(select) {
+    this.setState({ mentor: select.value });
   }
 
   render() {
-    // console.log(store.getState());
+    const { mentor } = this.state;
     return (
       <div className="container">
         <section className="search">
@@ -27,13 +27,17 @@ class Table extends Component {
             <h1>RSS mentor Dashboard</h1>
           </div>
           <form>
-            <input type="text" />
-            <button id="getSearch" onClick={this.setMentor.bind(this)}>Search</button>
+            <Select
+              type="text"
+              options={mentorsNames}
+              onChange={this.setMentor.bind(this)}
+              value={mentor}
+            />
           </form>
         </section>
         <section className="table">
           <table>
-            <TasksRow mentor={this.state.mentor} />
+            <TasksRow mentor={mentor} />
           </table>
         </section>
       </div>

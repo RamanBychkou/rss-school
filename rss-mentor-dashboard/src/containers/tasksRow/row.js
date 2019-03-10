@@ -1,29 +1,22 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 
 const data = require('../../data.json');
 
-// eslint-disable-next-line react/prefer-stateless-function
 class TasksRow extends Component {
-  componentWillUnmount() {
-    alert(this.props.mentor);
-  }
   render() {
+    const { mentor } = this.props;
+    if (data[mentor] === undefined) {
+      return (<div><p>Shoose mentor</p></div>);
+    }
+    const { tasks, students } = data[mentor];
 
-    const tasks = data[this.props.mentor].tasks;
-    const students = data[this.props.mentor].students;
     const studentsLogin = Object.keys(students);
     const tasksRow = [];
 
-    if (tasks === undefined) {
-      return (<div><p>Shoose mentor</p></div>);
-    }
-    const studentsCell = [];
-    for (const key in students) {
-      const student = (
-      <th>{students[key].githubLogin}</th>
-      );
-      studentsCell.push(student);
-    }
+
+    const studentTH = Object.keys(students);
+    const studentsCell = studentTH.map(current => <th key={`student${students[current].githubLogin}`}>{students[current].githubLogin}</th>);
 
     tasks.forEach((current) => {
       const tempRow = [];
@@ -42,22 +35,22 @@ class TasksRow extends Component {
           nameClass = 'toDo';
           break;
       }
-      studentsLogin.forEach((currentElem) => {
+      studentsLogin.forEach((currentElem, index) => {
         if (students[currentElem][current.name] !== undefined) {
           tempRow.push((
-          <td className={nameClass}>{students[currentElem][current.name].mark}</td>
+            <td key={`mark${index}`} className={nameClass}>{students[currentElem][current.name].mark}</td>
           ));
         } else {
           tempRow.push((
-          <td className={nameClass}>0</td>
+            <td className={nameClass}>0</td>
           ));
         }
       });
       const element = (
-      <tr>
-        <td>{current.name}</td>
-        {tempRow}
-      </tr>
+        <tr key={current.name}>
+          <td>{current.name}</td>
+          {tempRow}
+        </tr>
       );
       tasksRow.push(element);
     });
@@ -66,7 +59,7 @@ class TasksRow extends Component {
     return (
       <tbody id="table">
         <tr>
-          <th>{this.props.mentor}</th>
+          <th>{mentor}</th>
           {studentsCell}
         </tr>
         {tasksRow}

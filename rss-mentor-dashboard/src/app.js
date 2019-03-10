@@ -1,11 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Common from './components/commonTemplate';
+import Table from './components/table/table';
 
-const data = require('./data.json');
 
-// localStorage.setItem('mentor', 'Aleh Lipski');
-// data = JSON.parse(data);
-console.log(data);
-ReactDOM.render(<Common />, document.querySelector('#root'),
-);
+ReactDOM.render(<Table />, document.querySelector('#root'));
