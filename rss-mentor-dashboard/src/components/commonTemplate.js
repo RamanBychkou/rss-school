@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Search from './search/search';
 import Table from './table/table';
 
-function Common() {
-  return (
-    <div className="container">
-      <Search />
-      <Table />
-    </div>
-  );
+class Common extends React.Component {
+  render() {
+    return (
+        <Table />
+    );
+  }
 }
+
+
 export default Common;

@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
 
-const data = require('../../../data.json');
+const data = require('../../data.json');
 
+// eslint-disable-next-line react/prefer-stateless-function
 class TasksRow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tasks: data['Sergey Maksimuk'].tasks,
-      mentor: data['Sergey Maksimuk'].name,
-      students: data['Sergey Maksimuk'].students,
-    };
+  componentWillUnmount() {
+    alert(this.props.mentor);
   }
-
   render() {
-    const tasks = this.state.tasks;
-    const students = this.state.students;
+
+    const tasks = data[this.props.mentor].tasks;
+    const students = data[this.props.mentor].students;
     const studentsLogin = Object.keys(students);
     const tasksRow = [];
 
-
+    if (tasks === undefined) {
+      return (<div><p>Shoose mentor</p></div>);
+    }
     const studentsCell = [];
-    for (const key in this.state.students) {
+    for (const key in students) {
       const student = (
-        <th>{this.state.students[key].githubLogin}</th>
+      <th>{students[key].githubLogin}</th>
       );
       studentsCell.push(student);
     }
@@ -46,21 +44,20 @@ class TasksRow extends Component {
       }
       studentsLogin.forEach((currentElem) => {
         if (students[currentElem][current.name] !== undefined) {
-          console.log(students[currentElem][current.name].mark);
           tempRow.push((
-            <td className={nameClass}>{students[currentElem][current.name].mark}</td>
+          <td className={nameClass}>{students[currentElem][current.name].mark}</td>
           ));
         } else {
           tempRow.push((
-            <td className={nameClass}>0</td>
+          <td className={nameClass}>0</td>
           ));
         }
       });
       const element = (
-        <tr>
-          <td>{current.name}</td>
-          {tempRow}
-        </tr>
+      <tr>
+        <td>{current.name}</td>
+        {tempRow}
+      </tr>
       );
       tasksRow.push(element);
     });
@@ -69,7 +66,7 @@ class TasksRow extends Component {
     return (
       <tbody id="table">
         <tr>
-          <th>{this.state.mentor}</th>
+          <th>{this.props.mentor}</th>
           {studentsCell}
         </tr>
         {tasksRow}
@@ -78,5 +75,4 @@ class TasksRow extends Component {
     );
   }
 }
-
 export default TasksRow;
