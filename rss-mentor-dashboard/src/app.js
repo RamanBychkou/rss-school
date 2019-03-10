@@ -2,6 +2,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Table from './components/table/table';
-
+import './style.css';
 
 ReactDOM.render(<Table />, document.querySelector('#root'));

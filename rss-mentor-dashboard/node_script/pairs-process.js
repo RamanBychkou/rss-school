@@ -40,7 +40,6 @@ module.exports = function parseScore() {
       pairs[mentor][student] = {
         githubLogin: student,
       };
-      // console.log(current )
     } else {
       pairs[mentor][student] = {
         githubLogin: student,

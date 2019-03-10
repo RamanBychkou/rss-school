@@ -11,22 +11,16 @@ const checkTaskName = (nameTask) => {
   for (let i = 0; i < data.length; i += 1) {
     const taskNameArray = nameTask.split(' ');
     data[i] = data[i].replace(' -', '');
-    console.log('taskNameArray ', taskNameArray);
-    console.log('score ', nameTask);
     let check;
     for (let t = 0; t < taskNameArray.length; t += 1) {
-      console.log('nameTask.includes ', data[i].includes(taskNameArray[t]));
       if (data[i].includes(taskNameArray[t]) === true) {
         check = true;
-        console.log(t);
       } else {
         check = false;
         break;
       }
     }
     if (check === true) {
-      console.log('check ', check);
-      console.log('task ', data[i]);
       return data[i];
     }
   }

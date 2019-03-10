@@ -1,18 +1,7 @@
-body {
-  background-image: url(https://cs1.livemaster.ru/storage/3e/65/213f47ee9e5d98bb32e259a640j5--suveniry-i-podarki-vinilovyj-fon-dlya-predmetnoj-semki-50h50-.jpg);
-  color: #fff
-}
-.search {
-  margin: 0 auto;
-  text-align: center;
-  margin: 10px;
-}
-form {
-  color: black;
-}
 table {
   border-collapse: collapse;
   margin: 0 auto;
+  
 }
 th {
   padding: 10px;
@@ -22,7 +11,7 @@ td {
   border: 1px solid black;
   padding: 5px;
   margin: 5px;
-  border-collapse: 
+  text-align: center;
 }
 .container {
   background-color: rgba(0,0,0,0.6);
@@ -40,5 +29,5 @@ td {
   background-color: red;
 }
 .toDo {
-  background-color: yellow; 
+  background-color: rgb(255, 208, 0); 
 }

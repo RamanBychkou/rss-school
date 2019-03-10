@@ -7,7 +7,7 @@ class TasksRow extends Component {
   render() {
     const { mentor } = this.props;
     if (data[mentor] === undefined) {
-      return (<div><p>Shoose mentor</p></div>);
+      return (<tbody><tr><td>Shoose mentor</td></tr></tbody>);
     }
     const { tasks, students } = data[mentor];
 
@@ -42,7 +42,7 @@ class TasksRow extends Component {
           ));
         } else {
           tempRow.push((
-            <td className={nameClass}>0</td>
+            <td key={`mark${index}`} className={nameClass}>0</td>
           ));
         }
       });

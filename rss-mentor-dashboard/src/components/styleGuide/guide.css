@@ -1,0 +1,20 @@
+.guide {
+  width: 800px;
+  text-align: center;
+  margin: 0 auto;
+}
+.guideWrapper {
+  display: flex;
+  justify-content: space-between;
+  min-width: 800px;
+  margin: 0 auto;
+}
+.guide div {
+  padding: 10px;
+  margin: 10px;
+  height: 25px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

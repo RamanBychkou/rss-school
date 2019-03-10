@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from '../../../node_modules/react-select/dist/react-select.esm';
+import Guide from '../styleGuide/guide';
 import TasksRow from '../../containers/tasksRow/row';
 import './table.css';
 
@@ -40,6 +41,7 @@ class Table extends Component {
             <TasksRow mentor={mentor} />
           </table>
         </section>
+        <Guide />
       </div>
     );
   }
